@@ -1,25 +1,71 @@
-# CODING AGENTS: READ THIS FIRST
+# Christian Family Church
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+The website for **Christian Family Church (CFC)** — a multi-campus church across
+Johannesburg, South Africa. *Living Life Together. Know God. Find Freedom.
+Discover Purpose. Make a Difference.*
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+Built with **Next.js (App Router) + TypeScript + React**, recreating the design
+system from the Claude Design prototypes. Content lives in typed data files under
+`lib/` so it is structured and ready to be migrated to a CMS (e.g. Payload).
 
-## What you should do — IMPORTANT
+## Getting started
 
-**Read the chat transcripts first.** There are 1 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
+```
 
-**Read `project/Home.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Design system
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+- **Type:** Archivo (heavy display) + Hanken Grotesk (body), via `next/font`.
+- **Colour:** deep navy structure (`#0B1830` / `#081226`), royal-blue accent
+  (`#2E6BE6`), white / light-grey content sections that alternate for rhythm.
+- **Components:** image-led overlay cards (Church of the Highlands style), a
+  liquid-glass fixed nav with dropdowns, pill CTAs, scroll-reveal sections, and a
+  silent looping hero video.
+- Tokens and reusable hover/reveal/grid classes live in `app/globals.css`.
 
-## About the design files
+## Project structure
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+```
+app/                 # routes (App Router)
+  page.tsx           # Home
+  about/ ...         # Who We Are, Our Story, Leadership, Statement of Faith
+  campuses/[slug]    # scalable campus template
+  ministries/[slug]  # ministry template
+  events/[slug]      # event template
+  messages/[id]      # individual message
+  watch, connect, small-groups, growth-track, dream-team,
+  giving, contact, new, sign-in, register, privacy, terms
+components/          # Nav, Footer, ui/* shared primitives
+lib/                 # content as typed data (site, campuses, ministries,
+                     # leadership, navigation, groups, messages, events, ...)
+public/assets        # photography, logo marks, hero video, QR
+```
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+## Campuses & content
 
-## Bundle contents
+Campuses are a first-class concept: add a campus to `lib/campuses.ts` and it
+appears on the Campuses listing, the footer, the contact selector, and gets its
+own `/campuses/<slug>` page. Ministries, events and messages work the same way.
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Christian Family Church Site Design` project files (HTML prototypes, assets, components)
+Current campuses:
+- **CFC Johannesburg** — Cnr. Atlas Rd. & Silver Wings Blvd., Parkhaven, Boksburg
+- **CFC South** — 21 Heidelberg Rd, Newmarket AH, Alberton, 1449
+
+Services: Sundays 08:30 & 10:30 AM.
+
+## Notes for future work
+
+- Wire `lib/*` data into Payload CMS collections/globals when the backend lands.
+- Online giving "Give Now" should initiate the real PayFast checkout.
+- Replace representative small-group / event / message data with live feeds
+  (Church Center, YouTube Data API for per-video thumbnails).
+- Leadership headshots are monogram avatars until real photos are supplied.
+
+---
+
+_The original Claude Design handoff bundle (chat transcripts and HTML prototypes)
+is kept under `project/` and `chats/` for reference._

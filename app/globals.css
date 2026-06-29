@@ -1,0 +1,130 @@
+/* ============================================================
+   Christian Family Church — global design system
+   Navy structure (#0B1830 / #081226), royal-blue accent (#2E6BE6),
+   Archivo (display) + Hanken Grotesk (body).
+   ============================================================ */
+
+:root {
+  --navy-900: #070F21;   /* deepest overlay */
+  --navy-800: #081226;   /* footer */
+  --navy-700: #0A1631;   /* mobile menu */
+  --navy-600: #0B1830;   /* dark sections / nav */
+  --navy-500: #13244a;   /* hover dark */
+  --ink: #11203F;        /* primary text */
+  --ink-soft: #3a4660;
+  --slate: #5A6478;
+  --slate-light: #9aa3b5;
+  --paper: #ffffff;
+  --paper-grey: #F4F5F7;
+  --accent: #2E6BE6;     /* royal blue */
+  --accent-dark: #1f54c4;
+  --accent-light: #6F9CF0;
+  --accent-lighter: #9DBDF7;
+  --line: rgba(255, 255, 255, 0.1);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 { font-family: var(--font-archivo), system-ui, sans-serif; }
+
+a { color: inherit; }
+
+img, video { display: block; max-width: 100%; }
+
+/* ---------- Section reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+}
+
+/* ---------- Mobile menu entrance ---------- */
+@keyframes cfcMenuIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Nav dropdowns ---------- */
+.dd { position: relative; }
+.dd > .dd-panel {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.22s ease, visibility 0.22s ease;
+  z-index: 1200;
+}
+.dd:hover > .dd-panel { opacity: 1; visibility: visible; }
+.dd > .dd-panel > .dd-inner {
+  transform: translateY(8px);
+  transition: transform 0.24s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.dd:hover > .dd-panel > .dd-inner { transform: translateY(0); }
+.dd .dd-caret { transition: transform 0.22s ease; }
+.dd:hover .dd-caret { transform: rotate(180deg); }
+.dd-item { transition: background 0.18s ease, padding-left 0.18s ease; }
+.dd-item:hover { background: rgba(255, 255, 255, 0.07); padding-left: 18px; }
+
+/* ---------- Highlands-style overlay card hover ---------- */
+.step-card .step-img { transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.step-card:hover .step-img { transform: scale(1.07); }
+.step-card .step-cta {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+.step-card:hover .step-cta { opacity: 1; transform: translateY(0); }
+.step-card { transition: box-shadow 0.4s ease, transform 0.4s ease; }
+.step-card:hover { box-shadow: 0 30px 60px -28px rgba(11, 24, 48, 0.55); transform: translateY(-4px); }
+
+/* Square ministry-style tile (image zoom only) */
+.tile-img { transition: transform 0.5s ease; }
+.tile:hover .tile-img { transform: scale(1.06); }
+
+/* Plain lift card */
+.lift { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.lift:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -24px rgba(11, 24, 48, 0.35); }
+
+/* ---------- Nav responsive ---------- */
+@media (max-width: 999px) {
+  .nav-desktop { display: none !important; }
+  .nav-burger { display: flex !important; }
+}
+@media (max-width: 480px) {
+  .nav-wordmark { font-size: 12.5px !important; letter-spacing: 0.08em !important; }
+}
+
+/* ---------- Utility ---------- */
+.no-scroll { overflow: hidden; }
+
+/* Generic responsive grid collapse for fixed multi-column grids */
+@media (max-width: 1024px) {
+  .grid-4 { grid-template-columns: 1fr 1fr !important; }
+  .grid-5 { grid-template-columns: 1fr 1fr 1fr !important; }
+  .grid-3 { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4, .grid-5,
+  .split, .split-rev { grid-template-columns: 1fr !important; }
+  .hero-pad { padding-top: 96px !important; }
+}
