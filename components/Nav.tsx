@@ -37,7 +37,8 @@ export function Nav({ active = "", overlay = true }: { active?: string; overlay?
   const solid = scrolled || !overlay;
 
   return (
-    <header
+    <>
+      <header
       style={{
         position: "fixed",
         top: 0,
@@ -47,13 +48,10 @@ export function Nav({ active = "", overlay = true }: { active?: string; overlay?
         background: solid
           ? "rgba(11,24,48,0.55)"
           : "linear-gradient(to bottom, rgba(7,15,33,.6), rgba(7,15,33,0))",
-        borderBottom: solid ? "1px solid rgba(255,255,255,.12)" : "1px solid transparent",
         backdropFilter: solid ? "saturate(1.8) blur(22px)" : "none",
         WebkitBackdropFilter: solid ? "saturate(1.8) blur(22px)" : "none",
-        boxShadow: solid
-          ? "0 10px 34px -14px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.12)"
-          : "none",
-        transition: "background .4s ease, border-color .4s ease, box-shadow .4s ease",
+        boxShadow: solid ? "0 10px 34px -14px rgba(0,0,0,.5)" : "none",
+        transition: "background .4s ease, box-shadow .4s ease",
         fontFamily: "var(--font-hanken)",
       }}
     >
@@ -261,8 +259,11 @@ export function Nav({ active = "", overlay = true }: { active?: string; overlay?
           ))}
         </button>
       </div>
+      </header>
 
-      {/* Mobile full-screen menu */}
+      {/* Mobile full-screen menu - rendered outside <header> so the header's
+          backdrop-filter doesn't become its containing block (which otherwise
+          traps the fixed overlay inside the 78px bar once scrolled). */}
       {open && (
         <div
           style={{
@@ -327,6 +328,6 @@ export function Nav({ active = "", overlay = true }: { active?: string; overlay?
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
