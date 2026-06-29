@@ -114,6 +114,10 @@ img, video { display: block; max-width: 100%; }
   .nav-wordmark { font-size: 12.5px !important; letter-spacing: 0.08em !important; }
 }
 
+/* Hero copy line breaks: flow naturally on mobile, controlled on desktop */
+.hero-br { display: none; }
+@media (min-width: 768px) { .hero-br { display: inline; } }
+
 /* ---------- Utility ---------- */
 .no-scroll { overflow: hidden; }
 
