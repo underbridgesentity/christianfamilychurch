@@ -35,7 +35,7 @@ export default function WatchPage() {
             </Hover>
           </div>
           <Reveal style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: "clamp(24px,3vw,44px)", alignItems: "center" }} className="split">
-            <YouTubeEmbed playlistId={site.youtube.uploadsPlaylist} title="Latest CFC message" />
+            <YouTubeEmbed videoId={featured.youtubeId} playlistId={featured.youtubeId ? undefined : site.youtube.uploadsPlaylist} title={featured.title} />
             <div>
               <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "#9DBDF7", margin: "0 0 12px" }}>Latest · {featured.series}</p>
               <h2 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: "clamp(26px,3.4vw,40px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: "0 0 12px" }}>{featured.title}</h2>

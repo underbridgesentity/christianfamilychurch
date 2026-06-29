@@ -7,6 +7,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Hover } from "@/components/ui/Hover";
 import { campuses } from "@/lib/campuses";
 import { site } from "@/lib/site";
+import { messages } from "@/lib/messages";
+
+const latest = messages[0];
 
 const eyebrow: React.CSSProperties = {
   fontFamily: "var(--font-archivo)",
@@ -101,7 +104,7 @@ export default function HomePage() {
       <section style={{ background: "#fff", padding: "clamp(72px,9vw,120px) clamp(20px,4vw,40px)" }}>
         <div style={{ maxWidth: 1180, margin: "0 auto" }}>
           <Reveal className="split" style={{ display: "grid", gridTemplateColumns: "1.25fr 1fr", gap: "clamp(28px,4vw,56px)", alignItems: "center" }}>
-            <YouTubeEmbed playlistId={site.youtube.uploadsPlaylist} title="Latest CFC message" />
+            <YouTubeEmbed videoId={latest?.youtubeId} playlistId={latest?.youtubeId ? undefined : site.youtube.uploadsPlaylist} title={latest?.title ?? "Latest CFC message"} />
             <div>
               <p style={eyebrow}>Latest Message</p>
               <h2 style={{ ...h2, fontSize: "clamp(30px,4vw,46px)", lineHeight: 1.04, margin: "0 0 14px" }}>Straight from Sunday</h2>
