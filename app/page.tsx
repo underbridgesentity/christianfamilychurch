@@ -65,9 +65,10 @@ export default function HomePage() {
         <h1 style={{ fontFamily: "var(--font-archivo)", fontWeight: 900, fontSize: "clamp(38px,6.6vw,88px)", lineHeight: 1, letterSpacing: "-.03em", color: "#fff", margin: "0 0 22px" }}>
           Living Life Together
         </h1>
-        <p style={{ fontSize: "clamp(18px,2.1vw,24px)", fontWeight: 300, lineHeight: 1.55, color: "rgba(255,255,255,.84)", maxWidth: 760, margin: "0 auto 38px" }}>
+        <p style={{ fontSize: "clamp(18px,2.1vw,24px)", fontWeight: 300, lineHeight: 1.55, color: "rgba(255,255,255,.84)", maxWidth: 840, margin: "0 auto 38px" }}>
           A church for everyone, across Johannesburg.<br />
-          Whoever you are, wherever you’ve been - there’s a place for you here.
+          Whoever you are, wherever you’ve been -<br />
+          there’s a place for you here.
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center" }}>
           <Hover as={Link} href="/new" style={{ background: "var(--accent)", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 16, padding: "17px 38px", borderRadius: 100, transition: "background .2s,transform .2s" }} hoverStyle={{ background: "var(--accent-dark)", transform: "translateY(-2px)" }}>

@@ -99,7 +99,7 @@ export function HeroVideo({ src, poster, children }: HeroVideoProps) {
           maxWidth: 1340,
           width: "100%",
           margin: "0 auto",
-          padding: "120px clamp(20px,4vw,40px) clamp(40px,7vh,84px)",
+          padding: "120px clamp(20px,4vw,40px) clamp(28px,5vh,56px)",
         }}
       >
         <div
