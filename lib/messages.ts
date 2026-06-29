@@ -130,3 +130,18 @@ export const messages: Message[] = [
 export function getMessage(id: string): Message | undefined {
   return messages.find((m) => m.id === id);
 }
+
+/** Canonical YouTube still for a video id (loaded by the browser at runtime). */
+export function youtubeThumb(id: string): string {
+  // hqdefault always exists; covered into a 16:9 frame it crops cleanly.
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
+
+/**
+ * The image to show for a message: the real YouTube still when we have the
+ * video id, otherwise the local placeholder photo. Set `youtubeId` on a
+ * message and its card/thumbnail automatically matches the channel.
+ */
+export function messageImage(m: Message): string {
+  return m.youtubeId ? youtubeThumb(m.youtubeId) : m.thumbnail;
+}

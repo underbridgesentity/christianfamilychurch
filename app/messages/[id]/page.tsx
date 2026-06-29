@@ -6,7 +6,7 @@ import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { Hover } from "@/components/ui/Hover";
 import { site } from "@/lib/site";
-import { messages, getMessage } from "@/lib/messages";
+import { messages, getMessage, messageImage } from "@/lib/messages";
 
 export function generateStaticParams() {
   return messages.map((m) => ({ id: m.id }));
@@ -81,7 +81,7 @@ export default async function MessagePage({ params }: { params: Promise<{ id: st
                 <Reveal key={r.id} as={Link} href={`/messages/${r.id}`} delay={i * 0.06} className="lift" style={{ display: "block", background: "#fff", borderRadius: 8, overflow: "hidden", textDecoration: "none", color: "inherit", boxShadow: "0 1px 3px rgba(11,24,48,.08)" }}>
                   <div style={{ position: "relative", aspectRatio: "16 / 9", overflow: "hidden" }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={r.thumbnail} alt={r.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                    <img src={messageImage(r)} alt={r.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: 54, height: 54, borderRadius: "50%", background: "rgba(255,255,255,.92)", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="#2E6BE6"><path d="M8 5v14l11-7z" /></svg>
                     </div>

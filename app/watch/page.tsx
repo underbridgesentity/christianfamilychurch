@@ -5,7 +5,7 @@ import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { Hover } from "@/components/ui/Hover";
 import { site } from "@/lib/site";
-import { messages, series } from "@/lib/messages";
+import { messages, series, messageImage } from "@/lib/messages";
 
 export const metadata = { title: "Watch Messages" };
 
@@ -92,7 +92,7 @@ export default function WatchPage() {
               <Reveal key={m.id} as={Link} href={`/messages/${m.id}`} delay={(i % 4) * 0.06} className="step-card" style={{ display: "block", background: "#fff", borderRadius: 8, overflow: "hidden", textDecoration: "none", color: "inherit", boxShadow: "0 1px 3px rgba(11,24,48,.08)" }}>
                 <div style={{ position: "relative", aspectRatio: "16 / 9", overflow: "hidden" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={m.thumbnail} alt={m.title} className="step-img" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={messageImage(m)} alt={m.title} className="step-img" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", left: 14, top: 14, background: "rgba(11,24,48,.8)", color: "#fff", fontSize: 11, fontWeight: 600, padding: "5px 11px", borderRadius: 100 }}>{m.campus}</div>
                 </div>
                 <div style={{ padding: 22 }}>
