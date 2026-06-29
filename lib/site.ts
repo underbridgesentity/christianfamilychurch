@@ -15,8 +15,8 @@ export const site = {
     uploadsPlaylist: "UUfwesgT53QzX3rK7me6w_yg",
   },
   social: {
-    facebook: "https://www.facebook.com/CFCIJohannesburg",
-    instagram: "https://www.instagram.com/cfcijohannesburg",
+    facebook: "https://www.facebook.com/Christianfamilychurchjhb",
+    instagram: "https://www.instagram.com/cfcijhb/",
     youtube: "https://www.youtube.com/@CFCIJohannesburg",
   },
   copyrightYear: 2026,
