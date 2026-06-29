@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="" hint-size="100%,78px"></dc-import>
+
+  <!-- HERO -->
+  <section data-screen-label="Ministry / Hero" style="position:relative;min-height:62vh;display:flex;align-items:flex-end;overflow:hidden">
+    <img src="assets/img-baby-dedication.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(7,15,33,.92), rgba(7,15,33,.28) 70%)"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,40px) 60px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 16px">Ministry</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,94px);line-height:.95;letter-spacing:-.03em;color:#fff;margin:0">Children&rsquo;s World</h1>
+    </div>
+  </section>
+
+  <!-- PURPOSE -->
+  <section style="background:#fff;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div data-reveal style="max-width:840px;margin:0 auto;text-align:center;transition:opacity .7s ease,transform .7s ease">
+      <p style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3.4vw,38px);line-height:1.3;letter-spacing:-.01em;color:#11203F;margin:0">We exist to help every child know Jesus, build real friendships, and discover the plan God has for their life.</p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section style="background:#F4F5F7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div data-reveal style="margin-bottom:40px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">What We Do</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.6vw,44px);line-height:1.04;letter-spacing:-.02em;margin:0">Every Sunday &amp; beyond</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px">
+        <sc-for list="{{ whatWeDo }}" as="w" hint-placeholder-count="3">
+          <div data-reveal style="background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:opacity .6s ease,transform .6s ease">
+            <div style="aspect-ratio:16/11;overflow:hidden"><img src="{{ w.img }}" style="width:100%;height:100%;object-fit:cover" alt="{{ w.title }}" /></div>
+            <div style="padding:24px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:20px;margin:0">{{ w.title }}</h3></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section style="background:#fff;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:880px;margin:0 auto">
+      <div data-reveal style="margin-bottom:32px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">Coming Up</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.6vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0">Upcoming Events</h2></div>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <sc-for list="{{ events }}" as="e" hint-placeholder-count="2">
+          <a href="Event.dc.html" data-reveal style="display:flex;align-items:center;gap:22px;background:#F4F5F7;border-radius:8px;padding:22px 26px;text-decoration:none;color:inherit;transition:opacity .6s ease,transform .6s ease" style-hover="background:#eef1f6">
+            <div style="text-align:center;flex-shrink:0"><span style="display:block;font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:#2E6BE6;line-height:1">{{ e.day }}</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9aa3b5">{{ e.mon }}</span></div>
+            <div style="flex:1"><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:18px;margin:0 0 4px">{{ e.name }}</h3><p style="font-size:14px;color:#5A6478;margin:0">{{ e.meta }}</p></div>
+            <span style="color:#2E6BE6;font-size:20px">&rarr;</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section style="background:#0B1830;color:#fff;padding:clamp(72px,10vw,130px) clamp(20px,4vw,40px);text-align:center">
+    <div data-reveal style="max-width:700px;margin:0 auto;transition:opacity .7s ease,transform .7s ease">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,5vw,54px);line-height:1.04;letter-spacing:-.02em;margin:0 0 30px">Get involved</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a href="DreamTeam.dc.html" style="background:#2E6BE6;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:17px 38px;border-radius:100px;transition:background .2s,transform .2s" style-hover="background:#1f54c4;transform:translateY(-2px)">Join the Team</a>
+        <a href="Contact.dc.html" style="background:transparent;color:#fff;text-decoration:none;font-weight:600;font-size:16px;padding:17px 36px;border-radius:100px;border:1px solid rgba(255,255,255,.3);transition:background .2s" style-hover="background:rgba(255,255,255,.1)">Ask a Question</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    return {
+      whatWeDo: [
+        {title:'Sunday Kids Church', img:'assets/img-baby-dedication.jpg'},
+        {title:'Midweek Clubs', img:'assets/img-dreamteam.jpg'},
+        {title:'Holiday Programmes', img:'assets/img-worship-band.jpg'},
+      ],
+      events: [
+        {day:'15', mon:'Feb', name:'Kids Worship Morning', meta:'CFC Johannesburg \u00b7 9:00 AM'},
+        {day:'08', mon:'Mar', name:'Family Fun Day', meta:'CFC South \u00b7 10:00 AM'},
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

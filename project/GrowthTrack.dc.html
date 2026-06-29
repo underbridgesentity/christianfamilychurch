@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Growth Track / Hero" style="position:relative;min-height:62vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-host-welcome.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.84), rgba(7,15,33,.42))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 90px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">Growth Track</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,94px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px">Discover Your Purpose</h1>
+      <p style="font-size:clamp(17px,2vw,22px);font-weight:300;line-height:1.5;color:rgba(255,255,255,.84);max-width:540px;margin:0">Three simple steps to discover who you are and find your place in the family.</p>
+    </div>
+  </section>
+
+  <!-- 3 STEPS -->
+  <sc-for list="{{ steps }}" as="s" hint-placeholder-count="3">
+    <section style="background:{{ s.bg }};color:{{ s.text }}">
+      <div data-reveal style="max-width:1180px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center;transition:opacity .7s ease,transform .7s ease">
+        <div style="order:{{ s.imgOrder }};border-radius:8px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 60px -30px rgba(11,24,48,.4)"><img src="{{ s.img }}" style="width:100%;height:100%;object-fit:cover" alt="{{ s.title }}" /></div>
+        <div style="order:{{ s.txtOrder }}">
+          <span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(56px,9vw,104px);line-height:.85;letter-spacing:-.04em;color:{{ s.num }};display:block">{{ s.no }}</span>
+          <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:{{ s.kicker }};margin:20px 0 10px">{{ s.label }}</p>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.06;letter-spacing:-.02em;margin:0 0 14px">{{ s.title }}</h2>
+          <p style="font-size:17px;line-height:1.65;color:{{ s.body }};margin:0;max-width:420px">{{ s.desc }}</p>
+        </div>
+      </div>
+    </section>
+  </sc-for>
+
+  <!-- DATES -->
+  <section style="background:#F4F5F7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:880px;margin:0 auto">
+      <div data-reveal style="text-align:center;margin-bottom:44px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">Schedule</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.6vw,42px);line-height:1.05;letter-spacing:-.02em;margin:0">Upcoming Growth Track</h2></div>
+      <div data-reveal style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:opacity .7s ease,transform .7s ease">
+        <sc-for list="{{ dates }}" as="d" hint-placeholder-count="3">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;padding:24px 28px;border-bottom:1px solid #eceef2;flex-wrap:wrap">
+            <div style="display:flex;align-items:center;gap:20px"><div style="text-align:center;flex-shrink:0"><span style="display:block;font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:#2E6BE6;line-height:1">{{ d.day }}</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9aa3b5">{{ d.mon }}</span></div><div><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">{{ d.campus }}</h3><p style="font-size:14px;color:#5A6478;margin:0">{{ d.time }}</p></div></div>
+            <a href="#register" style="color:#2E6BE6;text-decoration:none;font-weight:600;font-size:14.5px;border:1px solid #cfdcf7;padding:9px 20px;border-radius:100px;transition:all .2s" style-hover="background:#2E6BE6;color:#fff;border-color:#2E6BE6">Register</a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="register" style="background:#0B1830;color:#fff;padding:clamp(72px,10vw,130px) clamp(20px,4vw,40px);text-align:center">
+    <div data-reveal style="max-width:700px;margin:0 auto;transition:opacity .7s ease,transform .7s ease">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.04;letter-spacing:-.02em;margin:0 0 18px">Take your first step</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,.72);line-height:1.6;margin:0 0 34px">Reserve your spot at the next Growth Track at your campus.</p>
+      <a href="SignIn.dc.html" style="display:inline-block;background:#2E6BE6;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:18px 44px;border-radius:100px;transition:background .2s,transform .2s" style-hover="background:#1f54c4;transform:translateY(-2px)">Register Now</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    const steps = [
+      {no:'01', label:'Know God', title:'Discover the heart of CFC', desc:'Meet the team, hear our story, and discover what we believe and where we&rsquo;re going.', img:'assets/img-congregation-screens.jpg', bg:'#fff', text:'#11203F', body:'#3a4660', num:'#eef1f6', kicker:'#2E6BE6', imgOrder:1, txtOrder:2},
+      {no:'02', label:'Find Freedom', title:'Discover how you&rsquo;re wired', desc:'Uncover your unique design - your personality, gifts and the way God made you to thrive.', img:'assets/img-worship-band.jpg', bg:'#F4F5F7', text:'#11203F', body:'#3a4660', num:'#e6e8ee', kicker:'#2E6BE6', imgOrder:2, txtOrder:1},
+      {no:'03', label:'Make a Difference', title:'Discover your place to serve', desc:'Find the Dream Team that fits your gifts and start making a difference this week.', img:'assets/img-dreamteam.jpg', bg:'#fff', text:'#11203F', body:'#3a4660', num:'#eef1f6', kicker:'#2E6BE6', imgOrder:1, txtOrder:2},
+    ];
+    const dates = [
+      {day:'02', mon:'Feb', campus:'CFC Johannesburg', time:'After the 10:30 AM service'},
+      {day:'09', mon:'Feb', campus:'CFC South', time:'After the 10:30 AM service'},
+      {day:'01', mon:'Mar', campus:'CFC Johannesburg', time:'After the 10:30 AM service'},
+    ];
+    return { steps, dates };
+  }
+}
+</script>
+</body>
+</html>

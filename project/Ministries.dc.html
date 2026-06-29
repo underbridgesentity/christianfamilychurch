@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*step*/[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}[data-step] [data-stepcta]{transition:opacity .45s ease,transform .45s ease}[data-step]:hover [data-stepcta]{opacity:1;transform:translateY(0)}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Ministries / Hero" style="position:relative;min-height:60vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-baby-dedication.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.84), rgba(7,15,33,.44))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 90px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">Ministries</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(38px,6.4vw,86px);line-height:.98;letter-spacing:-.03em;color:#fff;margin:0;max-width:780px">Built for Every Season of Life</h1>
+    </div>
+  </section>
+
+  <section style="background:#F4F5F7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:26px">
+      <sc-for list="{{ ministries }}" as="m" hint-placeholder-count="6">
+        <div data-step data-reveal style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(11,24,48,.08);display:flex;flex-direction:column;transition:opacity .6s ease,transform .6s ease,box-shadow .4s ease" style-hover="box-shadow:0 26px 50px -26px rgba(11,24,48,.4)">
+          <div style="aspect-ratio:16/10;overflow:hidden"><img src="{{ m.img }}" data-stepimg style="width:100%;height:100%;object-fit:cover" alt="{{ m.title }}" /></div>
+          <div style="padding:28px;display:flex;flex-direction:column;flex:1">
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:23px;margin:0 0 10px">{{ m.title }}</h3>
+            <p style="font-size:15px;color:#5A6478;line-height:1.55;margin:0 0 22px;flex:1">{{ m.desc }}</p>
+            <a href="Ministry.dc.html" style="align-self:flex-start;color:#2E6BE6;text-decoration:none;font-weight:600;font-size:15px;border-bottom:2px solid #2E6BE6;padding-bottom:3px">Learn More &rarr;</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    return { ministries: [
+      {title:'Children\u2019s World', desc:'A safe, fun place where kids learn about Jesus at their level.', img:'assets/img-baby-dedication.jpg'},
+      {title:'Youth Ministry', desc:'A high-energy community where teenagers belong and grow.', img:'assets/img-dreamteam.jpg'},
+      {title:'Marriage', desc:'Building strong, healthy marriages and homes that last.', img:'assets/img-host-welcome.jpg'},
+      {title:'Missions', desc:'Taking the love of Jesus across the city and beyond.', img:'assets/img-crowd-spotlights.jpg'},
+      {title:'Bible College', desc:'Train, grow and be equipped for a lifetime of ministry.', img:'assets/img-congregation-screens.jpg'},
+      {title:'Significance', desc:'Honouring and connecting our senior generation.', img:'assets/img-worship-band.jpg'},
+    ] };
+  }
+}
+</script>
+</body>
+</html>

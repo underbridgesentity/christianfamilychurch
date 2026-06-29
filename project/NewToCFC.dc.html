@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="new" hint-size="100%,78px"></dc-import>
+
+  <!-- HERO -->
+  <section data-screen-label="New to CFC / Hero" style="position:relative;min-height:70vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-baby-dedication.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.82), rgba(7,15,33,.4))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 90px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">New to CFC</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,92px);line-height:.98;letter-spacing:-.03em;color:#fff;margin:0 0 22px">You&rsquo;re Welcome Here.</h1>
+      <p style="font-size:clamp(17px,2vw,22px);font-weight:300;line-height:1.5;color:rgba(255,255,255,.84);max-width:520px;margin:0">Walking into a church for the first time takes courage. We&rsquo;ll make the rest easy.</p>
+    </div>
+  </section>
+
+  <!-- 3 INTRO CARDS -->
+  <section style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px">
+      <a href="Campuses.dc.html" data-reveal style="display:block;background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:transform .3s,box-shadow .3s;opacity:0;transform:translateY(24px)" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(11,24,48,.35)">
+        <div style="aspect-ratio:16/11;overflow:hidden"><img src="assets/img-congregation-wide.jpg" style="width:100%;height:100%;object-fit:cover" alt="Service times" /></div>
+        <div style="padding:28px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;margin:0 0 10px">Service Times &amp; Map</h3><p style="font-size:15px;color:#5A6478;line-height:1.55;margin:0">Find a campus, a time, and directions to get there.</p></div>
+      </a>
+      <a href="#sunday" data-reveal style="display:block;background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:transform .3s,box-shadow .3s;opacity:0;transform:translateY(24px)" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(11,24,48,.35)">
+        <div style="aspect-ratio:16/11;overflow:hidden"><img src="assets/img-worship-band.jpg" style="width:100%;height:100%;object-fit:cover" alt="What to expect" /></div>
+        <div style="padding:28px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;margin:0 0 10px">What to Expect</h3><p style="font-size:15px;color:#5A6478;line-height:1.55;margin:0">Modern worship, a real message, and a warm welcome.</p></div>
+      </a>
+      <a href="Contact.dc.html" data-reveal style="display:block;background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:transform .3s,box-shadow .3s;opacity:0;transform:translateY(24px)" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(11,24,48,.35)">
+        <div style="aspect-ratio:16/11;overflow:hidden"><img src="assets/img-host-welcome.jpg" style="width:100%;height:100%;object-fit:cover" alt="Plan your visit" /></div>
+        <div style="padding:28px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:22px;margin:0 0 10px">Plan Your Visit</h3><p style="font-size:15px;color:#5A6478;line-height:1.55;margin:0">Let us know you&rsquo;re coming and we&rsquo;ll look out for you.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- WHAT A SUNDAY LOOKS LIKE -->
+  <section id="sunday" style="background:#0B1830;color:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="text-align:center;margin-bottom:60px;transition:opacity .7s ease,transform .7s ease">
+        <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#9DBDF7;margin:0 0 16px">Your First Sunday</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4.2vw,48px);line-height:1.04;letter-spacing:-.02em;margin:0">Here&rsquo;s how it goes</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+        <div data-reveal style="transition:opacity .6s ease,transform .6s ease"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:56px;color:#2E6BE6;display:block;line-height:1">01</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin:14px 0 8px">Arrive &amp; Park</h3><p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.55;margin:0">Friendly hosts will meet you at the door.</p></div>
+        <div data-reveal style="transition:opacity .6s ease .08s,transform .6s ease .08s"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:56px;color:#2E6BE6;display:block;line-height:1">02</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin:14px 0 8px">Check In Kids</h3><p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.55;margin:0">A safe, fun space built just for them.</p></div>
+        <div data-reveal style="transition:opacity .6s ease .16s,transform .6s ease .16s"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:56px;color:#2E6BE6;display:block;line-height:1">03</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin:14px 0 8px">Worship &amp; Word</h3><p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.55;margin:0">About 75 minutes of worship and a message.</p></div>
+        <div data-reveal style="transition:opacity .6s ease .24s,transform .6s ease .24s"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:56px;color:#2E6BE6;display:block;line-height:1">04</span><h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:19px;margin:14px 0 8px">Let&rsquo;s Connect</h3><p style="font-size:14.5px;color:rgba(255,255,255,.6);line-height:1.55;margin:0">Grab a coffee and meet the team.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PASTORAL WELCOME -->
+  <section style="background:#F4F5F7;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div data-reveal style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:0.85fr 1.15fr;gap:clamp(28px,4vw,60px);align-items:center;transition:opacity .7s ease,transform .7s ease">
+      <div style="border-radius:8px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(11,24,48,.45)"><img src="assets/pastors-wolmarans.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top" alt="Apostle Theo and Dr Beverley Wolmarans" /></div>
+      <div>
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="#2E6BE6" style="opacity:.25;margin-bottom:6px"><path d="M9.5 6C6 7 4 10 4 13.5V18h5.5v-5.5H7c0-2 1.2-3.5 3-4L9.5 6Zm9 0c-3.5 1-5.5 4-5.5 7.5V18h5.5v-5.5H16c0-2 1.2-3.5 3-4L18.5 6Z"/></svg>
+        <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(22px,2.8vw,32px);line-height:1.3;letter-spacing:-.01em;color:#11203F;margin:0 0 26px">&ldquo;Whoever you are and whatever you&rsquo;ve walked through, you&rsquo;re not here by accident. There&rsquo;s a place for you in this family.&rdquo;</p>
+        <p style="font-family:'Archivo',sans-serif;font-weight:800;font-size:17px;margin:0">Apostle Theo &amp; Dr Beverley Wolmarans</p>
+        <p style="font-size:14.5px;color:#5A6478;margin:4px 0 0">Founding &amp; Senior Pastors, Christian Family Church</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT STEP CTA -->
+  <section style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div data-reveal style="max-width:760px;margin:0 auto;text-align:center;transition:opacity .7s ease,transform .7s ease">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,4.6vw,54px);line-height:1.03;letter-spacing:-.02em;margin:0 0 32px">Ready to take a next step?</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
+        <a href="GrowthTrack.dc.html" style="background:#2E6BE6;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:17px 38px;border-radius:100px;transition:background .2s,transform .2s" style-hover="background:#1f54c4;transform:translateY(-2px)">Growth Track</a>
+        <a href="Connect.dc.html" style="background:#fff;color:#11203F;text-decoration:none;font-weight:600;font-size:16px;padding:17px 36px;border-radius:100px;border:1px solid #d4d8e0;transition:border-color .2s" style-hover="border-color:#2E6BE6">Connect with Us</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){ return {}; }
+}
+</script>
+</body>
+</html>

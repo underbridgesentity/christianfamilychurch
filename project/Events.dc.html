@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*step*/[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}[data-step] [data-stepcta]{transition:opacity .45s ease,transform .45s ease}[data-step]:hover [data-stepcta]{opacity:1;transform:translateY(0)}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Events / Hero" style="position:relative;min-height:52vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-crowd-spotlights.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.84), rgba(7,15,33,.45))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 70px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">Events</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(42px,7.5vw,100px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0">What&rsquo;s Happening</h1>
+    </div>
+  </section>
+
+  <section style="background:#fff;border-bottom:1px solid #eceef2;position:sticky;top:78px;z-index:20">
+    <div style="max-width:1340px;margin:0 auto;padding:20px clamp(20px,4vw,40px);display:flex;gap:8px;flex-wrap:wrap">
+      <sc-for list="{{ campusOpts }}" as="o" hint-placeholder-count="3">
+        <button onClick="{{ o.set }}" style="background:{{ o.bg }};color:{{ o.color }};border:1px solid {{ o.border }};font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:14px;padding:10px 20px;border-radius:100px;cursor:pointer;transition:all .2s">{{ o.label }}</button>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#F4F5F7;padding:clamp(48px,6vw,80px) clamp(20px,4vw,40px) clamp(64px,8vw,110px)">
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px">
+      <sc-for list="{{ events }}" as="e" hint-placeholder-count="6">
+        <a href="Event.dc.html" data-step style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;border-radius:10px;overflow:hidden;aspect-ratio:4/5;text-decoration:none;color:#fff;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:box-shadow .4s ease" style-hover="box-shadow:0 30px 60px -28px rgba(11,24,48,.5)">
+          <img src="{{ e.img }}" data-stepimg style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="{{ e.name }}" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(7,15,33,.93) 8%, rgba(7,15,33,.12) 62%)"></div>
+          <div style="position:absolute;top:16px;left:16px;background:#fff;border-radius:8px;padding:8px 12px;text-align:center;box-shadow:0 4px 12px rgba(11,24,48,.25)"><span style="display:block;font-family:'Archivo',sans-serif;font-weight:900;font-size:22px;color:#2E6BE6;line-height:1">{{ e.day }}</span><span style="font-family:'Archivo',sans-serif;font-weight:700;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9aa3b5">{{ e.mon }}</span></div>
+          <div style="position:relative;padding:28px">
+            <div style="display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.8);font-size:13px;margin-bottom:10px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9DBDF7" stroke-width="1.9"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z"/><circle cx="12" cy="10" r="2.4"/></svg>{{ e.campus }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:25px;line-height:1.05;margin:0">{{ e.name }}</h3>
+            <span data-stepcta style="display:inline-flex;align-items:center;gap:8px;margin-top:13px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.04em;color:#fff">View &amp; Register <span style="font-size:16px">&rarr;</span></span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { campus:'All' };
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    const all = [
+      {name:'21 Days of Prayer', day:'05', mon:'Jan', campus:'All Campuses', img:'assets/img-pastor-preaching.jpg'},
+      {name:'Baby Dedication', day:'09', mon:'Feb', campus:'CFC Johannesburg', img:'assets/img-baby-dedication.jpg'},
+      {name:'Worship Night', day:'21', mon:'Feb', campus:'CFC South', img:'assets/img-worship-band.jpg'},
+      {name:'Water Baptism', day:'01', mon:'Mar', campus:'CFC Johannesburg', img:'assets/img-congregation-wide.jpg'},
+      {name:'Family Fun Day', day:'08', mon:'Mar', campus:'CFC South', img:'assets/img-dreamteam.jpg'},
+      {name:'Easter Services', day:'05', mon:'Apr', campus:'All Campuses', img:'assets/img-congregation-screens.jpg'},
+    ];
+    const c = this.state.campus;
+    const events = all.filter(e => c==='All' || e.campus===c || e.campus==='All Campuses');
+    const campusOpts = ['All','CFC Johannesburg','CFC South'].map(v => {
+      const active = this.state.campus===v;
+      return { label: v==='All'?'All Campuses':v, set:()=>this.setState({campus:v}), bg: active?'#2E6BE6':'#fff', color: active?'#fff':'#3a4660', border: active?'#2E6BE6':'#d4d8e0' };
+    });
+    return { events, campusOpts };
+  }
+}
+</script>
+</body>
+</html>

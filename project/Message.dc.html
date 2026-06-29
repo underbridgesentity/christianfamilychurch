@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ false }}" active="watch" hint-size="100%,78px"></dc-import>
+
+  <!-- VIDEO PLAYER -->
+  <section data-screen-label="Message / Player" style="background:#05101f;padding-top:78px">
+    <div style="max-width:1280px;margin:0 auto">
+      <div style="position:relative;aspect-ratio:16/9;background:#000">
+        <iframe src="https://www.youtube.com/embed/videoseries?list=UUfwesgT53QzX3rK7me6w_yg&autoplay=1&mute=1&loop=1&rel=0&modestbranding=1" title="CFC message" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- META -->
+  <section style="background:#fff;padding:clamp(40px,5vw,64px) clamp(20px,4vw,40px) clamp(56px,7vw,90px)">
+    <div style="max-width:1080px;margin:0 auto">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">21 Days of Prayer</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,4.6vw,56px);line-height:1.02;letter-spacing:-.03em;margin:0 0 20px">God Will See You Through</h1>
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:center;color:#5A6478;font-size:15px;padding-bottom:30px;border-bottom:1px solid #eceef2">
+        <span style="display:flex;align-items:center;gap:9px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>Apostle Theo Wolmarans</span>
+        <span style="display:flex;align-items:center;gap:9px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" stroke-width="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>19 January 2026</span>
+        <span style="display:flex;align-items:center;gap:9px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" stroke-width="1.8"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z"/><circle cx="12" cy="10" r="2.4"/></svg>CFC Johannesburg</span>
+        <span style="display:flex;gap:10px;margin-left:auto">
+          <a href="#" aria-label="Share" style="display:flex;align-items:center;gap:8px;color:#11203F;text-decoration:none;font-weight:600;font-size:14px;border:1px solid #d4d8e0;padding:9px 18px;border-radius:100px;transition:border-color .2s" style-hover="border-color:#2E6BE6">Share</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RELATED -->
+  <section style="background:#F4F5F7;padding:clamp(56px,7vw,96px) clamp(20px,4vw,40px)">
+    <div style="max-width:1080px;margin:0 auto">
+      <div data-reveal style="margin-bottom:32px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">More From This Series</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3.2vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">21 Days of Prayer</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px">
+        <sc-for list="{{ related }}" as="r" hint-placeholder-count="3">
+          <a href="Message.dc.html" data-reveal style="display:block;background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:transform .3s,box-shadow .3s;opacity:0;transform:translateY(24px)" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(11,24,48,.3)">
+            <div style="position:relative;aspect-ratio:16/9;overflow:hidden"><img src="{{ r.img }}" style="width:100%;height:100%;object-fit:cover" alt="{{ r.title }}" /><div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.92);display:flex;align-items:center;justify-content:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="#2E6BE6"><path d="M8 5v14l11-7z"/></svg></div></div>
+            <div style="padding:20px"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#9aa3b5;margin:0 0 7px">{{ r.date }}</p><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:17px;line-height:1.2;margin:0">{{ r.title }}</h3></div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    return { related: [
+      {title:'The Power of Prayer', date:'12 Jan 2026', img:'assets/img-worship-band.jpg'},
+      {title:'When You Don\u2019t Give Up', date:'10 Jan 2026', img:'assets/img-crowd-spotlights.jpg'},
+      {title:'Faith Over Fear', date:'08 Jan 2026', img:'assets/img-congregation-wide.jpg'},
+    ] };
+  }
+}
+</script>
+</body>
+</html>

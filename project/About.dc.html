@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="about" hint-size="100%,78px"></dc-import>
+
+  <!-- HERO -->
+  <section data-screen-label="About / Hero" style="position:relative;min-height:64vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-congregation-screens.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.84), rgba(7,15,33,.45))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 90px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">About CFC</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(42px,7.5vw,100px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0">Who We Are</h1>
+    </div>
+  </section>
+
+  <!-- PURPOSE STATEMENT -->
+  <section style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="text-align:center;margin-bottom:56px;transition:opacity .7s ease,transform .7s ease">
+        <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 16px">Our Purpose</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.1;letter-spacing:-.02em;margin:0;color:#5A6478">Four simple commitments shape everything we do.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:#e6e8ee;border:1px solid #e6e8ee;border-radius:8px;overflow:hidden">
+        <div data-reveal style="background:#fff;padding:44px 32px;transition:opacity .6s ease,transform .6s ease"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:#cfd5e0">01</span><h3 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,2.6vw,32px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 0;color:#11203F">Know<br/>God</h3></div>
+        <div data-reveal style="background:#0B1830;padding:44px 32px;transition:opacity .6s ease .07s,transform .6s ease .07s"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:#3a517f">02</span><h3 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,2.6vw,32px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 0;color:#fff">Find<br/>Freedom</h3></div>
+        <div data-reveal style="background:#fff;padding:44px 32px;transition:opacity .6s ease .14s,transform .6s ease .14s"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:#cfd5e0">03</span><h3 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,2.6vw,32px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 0;color:#11203F">Discover<br/>Purpose</h3></div>
+        <div data-reveal style="background:#2E6BE6;padding:44px 32px;transition:opacity .6s ease .21s,transform .6s ease .21s"><span style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:#9DBDF7">04</span><h3 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(24px,2.6vw,32px);line-height:1.05;letter-spacing:-.02em;margin:18px 0 0;color:#fff">Make a<br/>Difference</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR STORY -->
+  <section style="background:#F4F5F7;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div style="max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,7vw,96px)">
+      <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);align-items:center;transition:opacity .7s ease,transform .7s ease">
+        <div style="border-radius:8px;overflow:hidden;aspect-ratio:4/3"><img src="assets/img-pastor-preaching.jpg" style="width:100%;height:100%;object-fit:cover" alt="Our story" /></div>
+        <div><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 16px">Our Story</p><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-.02em;margin:0 0 18px">A family that started small</h3><p style="font-size:16.5px;line-height:1.65;color:#3a4660;margin:0">What began as a handful of people with a big vision has become a multi-campus family across Johannesburg - still driven by the same heart to reach people and build lives.</p></div>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,60px);align-items:center;transition:opacity .7s ease,transform .7s ease">
+        <div style="order:2;border-radius:8px;overflow:hidden;aspect-ratio:4/3"><img src="assets/img-worship-band.jpg" style="width:100%;height:100%;object-fit:cover" alt="Our vision" /></div>
+        <div style="order:1"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 16px">Where We&rsquo;re Going</p><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,38px);line-height:1.08;letter-spacing:-.02em;margin:0 0 18px">Reaching the whole city</h3><p style="font-size:16.5px;line-height:1.65;color:#3a4660;margin:0">We&rsquo;re planting campuses across Johannesburg so that everyone, everywhere, has a church home within reach - a place to belong, grow, and serve.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SENIOR PASTORS -->
+  <section style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div data-reveal style="max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(28px,4vw,60px);align-items:center;transition:opacity .7s ease,transform .7s ease">
+      <div style="border-radius:8px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 30px 60px -30px rgba(11,24,48,.45)"><img src="assets/pastors-wolmarans.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center top" alt="Apostle Theo and Dr Beverley Wolmarans" /></div>
+      <div>
+        <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 16px">Founding &amp; Senior Pastors</p>
+        <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:1.05;letter-spacing:-.02em;margin:0 0 16px">Apostle Theo &amp; Dr Beverley Wolmarans</h3>
+        <p style="font-size:16.5px;line-height:1.65;color:#3a4660;margin:0">Apostle Theo and Dr Beverley Wolmarans founded Christian Family Church with a heart to reach people and build lives. Decades on, they still lead the family with the same passion to see people know God, find freedom and discover their purpose.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section style="background:#0B1830;color:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div style="max-width:1180px;margin:0 auto">
+      <div data-reveal style="margin-bottom:48px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#9DBDF7;margin:0 0 16px">Our Team</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4vw,48px);line-height:1.04;letter-spacing:-.02em;margin:0">Leadership Team</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px">
+        <sc-for list="{{ leaders }}" as="p" hint-placeholder-count="6">
+          <div data-reveal style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:30px;text-align:center;transition:opacity .6s ease,transform .6s ease">
+            <div style="width:84px;height:84px;border-radius:50%;margin:0 auto 18px;background:linear-gradient(135deg,#2E6BE6,#1c3f8f);display:flex;align-items:center;justify-content:center;font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;color:#fff">{{ p.initials }}</div>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:700;font-size:17px;margin:0 0 5px">{{ p.name }}</h3>
+            <p style="font-size:13.5px;color:rgba(255,255,255,.55);margin:0">{{ p.role }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT OF FAITH -->
+  <section style="background:#fff;padding:clamp(72px,9vw,120px) clamp(20px,4vw,40px)">
+    <div style="max-width:840px;margin:0 auto">
+      <div data-reveal style="margin-bottom:40px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 16px">What We Believe</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4vw,48px);line-height:1.04;letter-spacing:-.02em;margin:0">Statement of Faith</h2></div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <sc-for list="{{ faith }}" as="f" hint-placeholder-count="5">
+          <div style="border-bottom:1px solid #e6e8ee">
+            <button onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;background:transparent;border:none;cursor:pointer;padding:24px 4px;text-align:left;font-family:'Archivo',sans-serif;font-weight:700;font-size:clamp(17px,2vw,21px);color:#11203F">
+              <span>{{ f.q }}</span>
+              <span style="flex-shrink:0;width:30px;height:30px;border-radius:50%;background:{{ f.iconBg }};color:{{ f.iconColor }};display:flex;align-items:center;justify-content:center;font-size:20px;transition:all .2s">{{ f.icon }}</span>
+            </button>
+            <div style="max-height:{{ f.maxH }};overflow:hidden;transition:max-height .35s ease">
+              <p style="font-size:16px;line-height:1.65;color:#5A6478;margin:0;padding:0 4px 26px">{{ f.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { openFaith: 0 };
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    const leaders = [
+      {name:'Apostle Theo Wolmarans', role:'Co-founder & Senior Pastor', initials:'TW'},
+      {name:'Dr Beverley Wolmarans', role:'Co-founder & Senior Pastor', initials:'BW'},
+      {name:'Ps Johnny Slabbert', role:'Chief Operations Officer', initials:'JS'},
+      {name:'Ps Greg Thomaz', role:'GROW Director', initials:'GT'},
+      {name:'Ps Don-Ray Gaveni', role:'Online & Next Steps Pastor', initials:'DG'},
+      {name:'Ps Nanica Nel', role:'Groups Director & Youth Pastor', initials:'NN'},
+      {name:'Ps Jenny Roche', role:'Financial Director', initials:'JR'},
+      {name:'Ps Andre Wilmans', role:'Missions Director & Bible College Principal', initials:'AW'},
+      {name:'Ps Evert Boshoff', role:'Dream Team & Growth Track Director', initials:'EB'},
+      {name:'Ps Clive Nyakudzi', role:'Weekend Service Director', initials:'CN'},
+    ];
+    const items = [
+      {q:'The Bible', a:'We believe the Bible is the inspired Word of God - our final authority for faith and daily life.'},
+      {q:'God', a:'We believe in one God, eternally existing as Father, Son and Holy Spirit.'},
+      {q:'Salvation', a:'We believe salvation is a free gift of God\u2019s grace, received through faith in Jesus Christ alone.'},
+      {q:'The Holy Spirit', a:'We believe the Holy Spirit empowers every believer to live a transformed life and serve others.'},
+      {q:'The Church', a:'We believe the Church is God\u2019s family - called together to worship, grow, and reach the world.'},
+    ];
+    const open = this.state.openFaith;
+    const faith = items.map((it,i)=>{
+      const isOpen = i===open;
+      return { ...it, icon: isOpen?'\u2212':'+', maxH: isOpen?'240px':'0px', iconBg: isOpen?'#2E6BE6':'#eef1f6', iconColor: isOpen?'#fff':'#11203F', toggle: ()=> this.setState(s=>({openFaith: s.openFaith===i? -1 : i})) };
+    });
+    return { leaders, faith };
+  }
+}
+</script>
+</body>
+</html>

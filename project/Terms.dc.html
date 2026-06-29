@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ false }}" active="" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Terms and Conditions" style="background:#0B1830;color:#fff;padding:130px clamp(20px,4vw,40px) clamp(48px,6vw,72px)">
+    <div style="max-width:820px;margin:0 auto">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 18px">Legal</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(34px,5.5vw,64px);line-height:1.02;letter-spacing:-.03em;margin:0 0 14px">Terms &amp; Conditions</h1>
+      <p style="font-size:15px;color:rgba(255,255,255,.6);margin:0">SMS Short Code (49991) Terms of Use</p>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:clamp(48px,6vw,80px) clamp(20px,4vw,40px) clamp(64px,8vw,110px)">
+    <div style="max-width:820px;margin:0 auto">
+      <sc-for list="{{ blocks }}" as="b" hint-placeholder-count="10">
+        <sc-if value="{{ b.isH }}" hint-placeholder-val="{{ false }}"><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(18px,2.2vw,23px);letter-spacing:-.01em;color:#11203F;margin:34px 0 12px">{{ b.s }}</h2></sc-if>
+        <sc-if value="{{ b.isP }}" hint-placeholder-val="{{ false }}"><p style="font-size:16px;line-height:1.72;color:#3a4660;margin:0 0 15px">{{ b.s }}</p></sc-if>
+        <sc-if value="{{ b.isLi }}" hint-placeholder-val="{{ false }}"><div style="display:flex;gap:12px;align-items:flex-start;margin:0 0 9px;padding-left:6px"><span style="flex-shrink:0;width:6px;height:6px;border-radius:50%;background:#2E6BE6;margin-top:9px"></span><p style="font-size:15.5px;line-height:1.65;color:#3a4660;margin:0">{{ b.s }}</p></div></sc-if>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { blocks: [] };
+  componentDidMount(){
+    import('./policies.js').then(m => {
+      this.setState({ blocks: (m.terms || []).filter(b=>b.t!=='meta') });
+    }).catch(()=>{});
+  }
+  renderVals(){
+    const blocks = (this.state.blocks||[]).map(b=>({ s:b.s, isH:b.t==='h', isP:b.t==='p', isLi:b.t==='li' }));
+    return { blocks };
+  }
+}
+</script>
+</body>
+</html>

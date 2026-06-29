@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="watch" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Series / Hero" style="position:relative;min-height:54vh;display:flex;align-items:flex-end;overflow:hidden">
+    <img src="assets/img-congregation-screens.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(7,15,33,.92), rgba(7,15,33,.3) 70%)"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:0 clamp(20px,4vw,40px) 60px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 16px">Watch</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(42px,7.5vw,96px);line-height:.95;letter-spacing:-.03em;color:#fff;margin:0">Message Series</h1>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px">
+        <sc-for list="{{ series }}" as="s" hint-placeholder-count="6">
+          <a href="Watch.dc.html" data-step style="display:block;text-decoration:none;color:inherit">
+            <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 1px 3px rgba(11,24,48,.1);transition:box-shadow .4s ease" style-hover="box-shadow:0 30px 60px -26px rgba(11,24,48,.45)">
+              <img src="{{ s.img }}" data-stepimg style="width:100%;height:100%;object-fit:cover" alt="{{ s.title }}" />
+              <div style="position:absolute;inset:0;background:linear-gradient(150deg, {{ s.tint }} 0%, rgba(7,15,33,.85) 100%)"></div>
+              <div style="position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:flex-end"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin:0 0 8px">{{ s.count }} messages</p><h3 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;line-height:1;color:#fff;margin:0">{{ s.title }}</h3></div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals(){
+    return { series: [
+      {title:'21 Days of Prayer', count:'8', img:'assets/img-pastor-preaching.jpg', tint:'rgba(46,107,230,.45)'},
+      {title:'All Things New', count:'5', img:'assets/img-worship-band.jpg', tint:'rgba(231,76,60,.4)'},
+      {title:'No One Like You', count:'6', img:'assets/img-worship-vocalist.jpg', tint:'rgba(20,33,63,.4)'},
+      {title:'So Much Power', count:'4', img:'assets/img-dreamteam.jpg', tint:'rgba(124,58,200,.45)'},
+      {title:'Built Together', count:'7', img:'assets/img-crowd-spotlights.jpg', tint:'rgba(20,90,120,.45)'},
+      {title:'God Will See You Through', count:'5', img:'assets/img-congregation-wide.jpg', tint:'rgba(46,107,230,.4)'},
+    ] };
+  }
+}
+</script>
+</body>
+</html>

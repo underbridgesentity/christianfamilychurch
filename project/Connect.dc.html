@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*step*/[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}[data-step] [data-stepcta]{transition:opacity .45s ease,transform .45s ease}[data-step]:hover [data-stepcta]{opacity:1;transform:translateY(0)}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Connect / Hero" style="position:relative;min-height:56vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-worship-band.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.84), rgba(7,15,33,.45))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 80px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">Connect</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(42px,7.5vw,100px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px">Get Connected</h1>
+      <p style="font-size:clamp(17px,2vw,22px);font-weight:300;line-height:1.5;color:rgba(255,255,255,.84);max-width:540px;margin:0">Church was never meant to be done alone. Here&rsquo;s how to take your next step.</p>
+    </div>
+  </section>
+
+  <section style="background:#F4F5F7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      <sc-for list="{{ cards }}" as="c" hint-placeholder-count="6">
+        <a href="{{ c.href }}" data-step data-reveal style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;border-radius:8px;overflow:hidden;aspect-ratio:4/3;text-decoration:none;color:#fff;transition:opacity .6s ease,transform .6s ease,box-shadow .4s ease" style-hover="box-shadow:0 30px 60px -28px rgba(11,24,48,.55)">
+          <img src="{{ c.img }}" data-stepimg style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="{{ c.title }}" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(7,15,33,.9) 6%, rgba(7,15,33,.15) 60%)"></div>
+          <div style="position:relative;padding:30px">
+            <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:#9DBDF7;margin:0 0 9px">{{ c.label }}</p>
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:26px;margin:0">{{ c.title }}</h3>
+            <span data-stepcta style="display:inline-flex;align-items:center;gap:8px;margin-top:13px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.04em;color:#fff">Explore <span style="font-size:16px">&rarr;</span></span>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    return { cards: [
+      {title:'Join CFC', label:'Become a Member', img:'assets/img-congregation-screens.jpg', href:'GrowthTrack.dc.html'},
+      {title:'Water Baptism', label:'Take the Plunge', img:'assets/img-worship-band.jpg', href:'Events.dc.html'},
+      {title:'Small Groups', label:'Find Your People', img:'assets/img-baby-dedication.jpg', href:'SmallGroups.dc.html'},
+      {title:'Growth Track', label:'Discover Purpose', img:'assets/img-host-welcome.jpg', href:'GrowthTrack.dc.html'},
+      {title:'Dream Team', label:'Use Your Gifts', img:'assets/img-dreamteam.jpg', href:'DreamTeam.dc.html'},
+      {title:'Events', label:'What\u2019s Happening', img:'assets/img-crowd-spotlights.jpg', href:'Events.dc.html'},
+    ] };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*step*/[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}[data-step] [data-stepcta]{transition:opacity .45s ease,transform .45s ease}[data-step]:hover [data-stepcta]{opacity:1;transform:translateY(0)}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="campuses" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Campuses / Hero" style="position:relative;min-height:58vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-crowd-spotlights.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.85), rgba(7,15,33,.45))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 80px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">Campuses</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(42px,7.5vw,100px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px">Find Your Campus</h1>
+      <p style="font-size:clamp(17px,2vw,22px);font-weight:300;line-height:1.5;color:rgba(255,255,255,.84);max-width:520px;margin:0">One church, many locations across Johannesburg.</p>
+    </div>
+  </section>
+
+  <section style="background:#F4F5F7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px">
+      <sc-for list="{{ campuses }}" as="c" hint-placeholder-count="2">
+        <div data-step data-reveal style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(11,24,48,.08);display:flex;flex-direction:column;transition:opacity .7s ease,transform .7s ease,box-shadow .4s ease" style-hover="box-shadow:0 26px 50px -26px rgba(11,24,48,.4)">
+          <div style="position:relative;aspect-ratio:16/10;overflow:hidden"><img src="{{ c.img }}" data-stepimg style="width:100%;height:100%;object-fit:cover" alt="{{ c.name }}" /><span style="position:absolute;top:18px;left:18px;background:rgba(255,255,255,.92);color:#11203F;font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px;border-radius:100px">{{ c.suburb }}</span></div>
+          <div style="padding:30px;display:flex;flex-direction:column;flex:1">
+            <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:27px;margin:0 0 16px">{{ c.name }}</h3>
+            <div style="display:flex;align-items:flex-start;gap:11px;margin-bottom:10px;color:#3a4660;font-size:15px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" stroke-width="1.8" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>{{ c.times }}</span></div>
+            <div style="display:flex;align-items:flex-start;gap:11px;margin-bottom:24px;color:#3a4660;font-size:15px"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" stroke-width="1.8" style="flex-shrink:0;margin-top:2px"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z"/><circle cx="12" cy="10" r="2.6"/></svg><span>{{ c.address }}</span></div>
+            <a href="Campus.dc.html" style="margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:#2E6BE6;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:15px 28px;border-radius:100px;transition:background .2s" style-hover="background:#1f54c4">Visit This Campus &rarr;</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:0 0 clamp(64px,8vw,110px)">
+    <div style="max-width:1340px;margin:0 auto;padding:0 clamp(20px,4vw,40px)">
+      <div data-reveal style="margin-bottom:32px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">All Locations</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.05;letter-spacing:-.02em;margin:0">Across Johannesburg</h2></div>
+      <div style="border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(11,24,48,.1);height:clamp(320px,46vw,520px);filter:saturate(.9)"><iframe title="CFC campuses map" src="https://www.google.com/maps?q=Johannesburg,South+Africa&z=10&output=embed" style="width:100%;height:100%;border:0" loading="lazy"></iframe></div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    return { campuses: [
+      {name:'CFC Johannesburg', suburb:'Boksburg', times:'Sundays 08:30 & 10:30 AM', address:'Cnr. Atlas Rd. & Silver Wings Blvd., Parkhaven, Boksburg', img:'assets/img-congregation-wide.jpg'},
+      {name:'CFC South', suburb:'Alberton', times:'Sundays 08:30 & 10:30 AM', address:'21 Heidelberg Rd, Newmarket AH, Alberton, 1449', img:'assets/img-crowd-spotlights.jpg'},
+    ] };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*step*/[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}@keyframes cfcPulse{0%{box-shadow:0 0 0 0 rgba(231,76,60,.6)}70%{box-shadow:0 0 0 10px rgba(231,76,60,0)}100%{box-shadow:0 0 0 0 rgba(231,76,60,0)}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="watch" hint-size="100%,78px"></dc-import>
+
+  <!-- HERO + FEATURED -->
+  <section data-screen-label="Watch / Hero" style="position:relative;background:#081226;color:#fff;padding:140px clamp(20px,4vw,40px) clamp(56px,7vw,90px);overflow:hidden">
+    <img src="assets/img-congregation-screens.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16" />
+    <div style="position:absolute;inset:0;background:linear-gradient(160deg, rgba(8,18,38,.9), rgba(11,24,48,.78))"></div>
+    <div style="position:relative;max-width:1340px;margin:0 auto">
+      <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between;margin-bottom:42px">
+        <div>
+          <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 18px">Messages</p>
+          <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,7vw,88px);line-height:.96;letter-spacing:-.03em;margin:0">Watch Messages</h1>
+        </div>
+        <a href="https://www.youtube.com/@CFCIJohannesburg/live" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:11px;background:#E74C3C;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:14px 26px;border-radius:100px;animation:cfcPulse 2.4s infinite" style-hover=""><span style="width:9px;height:9px;border-radius:50%;background:#fff"></span>Watch Live</a>
+      </div>
+      <div data-reveal style="display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(24px,3vw,44px);align-items:center;transition:opacity .7s ease,transform .7s ease">
+        <a href="Message.dc.html" style="position:relative;display:block;border-radius:10px;overflow:hidden;aspect-ratio:16/9;text-decoration:none;box-shadow:0 30px 60px -30px rgba(0,0,0,.6)">
+          <img src="assets/img-pastor-preaching.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="Featured message" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(7,15,33,.5), transparent)"></div>
+          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;transition:transform .25s" style-hover="transform:translate(-50%,-50%) scale(1.08)"><svg width="28" height="28" viewBox="0 0 24 24" fill="#2E6BE6"><path d="M8 5v14l11-7z"/></svg></div>
+        </a>
+        <div>
+          <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9DBDF7;margin:0 0 12px">Latest &middot; 21 Days of Prayer</p>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(26px,3.4vw,40px);line-height:1.05;letter-spacing:-.02em;margin:0 0 12px">God Will See You Through</h2>
+          <p style="font-size:15px;color:rgba(255,255,255,.6);margin:0 0 26px">Apostle Theo Wolmarans &middot; 19 January 2026</p>
+          <a href="Message.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#2E6BE6;color:#fff;text-decoration:none;font-weight:700;font-size:15px;padding:15px 30px;border-radius:100px;transition:background .2s" style-hover="background:#1f54c4">Watch Now &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERIES -->
+  <section style="background:#fff;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div data-reveal style="margin-bottom:40px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">Browse</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4vw,48px);line-height:1.04;letter-spacing:-.02em;margin:0">Message Series</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px">
+        <sc-for list="{{ series }}" as="s" hint-placeholder-count="4">
+          <a href="Message.dc.html" data-reveal style="display:block;text-decoration:none;color:inherit;transition:opacity .6s ease,transform .6s ease">
+            <div style="position:relative;border-radius:10px;overflow:hidden;aspect-ratio:1/1;box-shadow:0 1px 3px rgba(11,24,48,.1);transition:transform .3s" style-hover="transform:translateY(-6px)">
+              <img src="{{ s.img }}" style="width:100%;height:100%;object-fit:cover" alt="{{ s.title }}" />
+              <div style="position:absolute;inset:0;background:linear-gradient(150deg, {{ s.tint }} 0%, rgba(7,15,33,.85) 100%)"></div>
+              <div style="position:absolute;inset:0;padding:26px;display:flex;flex-direction:column;justify-content:flex-end"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin:0 0 8px">{{ s.count }} messages</p><h3 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;line-height:1;color:#fff;margin:0">{{ s.title }}</h3></div>
+            </div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECENT + CAMPUS FILTER -->
+  <section style="background:#F4F5F7;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div data-reveal style="display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-bottom:36px;transition:opacity .7s ease,transform .7s ease">
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(24px,3.2vw,38px);line-height:1.05;letter-spacing:-.02em;margin:0">Recent Messages</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <sc-for list="{{ campusOpts }}" as="o" hint-placeholder-count="3">
+            <button onClick="{{ o.set }}" style="background:{{ o.bg }};color:{{ o.color }};border:1px solid {{ o.border }};font-family:'Hanken Grotesk',sans-serif;font-weight:600;font-size:13.5px;padding:9px 18px;border-radius:100px;cursor:pointer;transition:all .2s">{{ o.label }}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px">
+        <sc-for list="{{ messages }}" as="m" hint-placeholder-count="4">
+          <a href="Message.dc.html" data-step style="display:block;background:#fff;border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 1px 3px rgba(11,24,48,.08);transition:transform .3s,box-shadow .3s" style-hover="transform:translateY(-6px);box-shadow:0 24px 48px -24px rgba(11,24,48,.3)">
+            <div style="position:relative;aspect-ratio:16/9;overflow:hidden"><img src="{{ m.img }}" data-stepimg style="width:100%;height:100%;object-fit:cover" alt="{{ m.title }}" /><div style="position:absolute;left:14px;top:14px;background:rgba(11,24,48,.8);color:#fff;font-size:11px;font-weight:600;padding:5px 11px;border-radius:100px">{{ m.campus }}</div></div>
+            <div style="padding:22px"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#2E6BE6;margin:0 0 8px">{{ m.date }}</p><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;line-height:1.2;margin:0 0 6px">{{ m.title }}</h3><p style="font-size:13.5px;color:#5A6478;margin:0">{{ m.pastor }}</p></div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { campus:'All' };
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    const series = [
+      {title:'21 Days of Prayer', count:'8', img:'assets/img-pastor-preaching.jpg', tint:'rgba(46,107,230,.45)'},
+      {title:'All Things New', count:'5', img:'assets/img-worship-band.jpg', tint:'rgba(231,76,60,.4)'},
+      {title:'No One Like You', count:'6', img:'assets/img-worship-vocalist.jpg', tint:'rgba(20,33,63,.4)'},
+      {title:'So Much Power', count:'4', img:'assets/img-dreamteam.jpg', tint:'rgba(124,58,200,.45)'},
+    ];
+    const all = [
+      {title:'God Will See You Through', pastor:'Apostle Theo Wolmarans', date:'19 Jan 2026', campus:'CFC Johannesburg', img:'assets/img-pastor-preaching.jpg'},
+      {title:'A Heart That Worships', pastor:'Dr Beverley Wolmarans', date:'12 Jan 2026', campus:'CFC South', img:'assets/img-worship-vocalist.jpg'},
+      {title:'Made for More', pastor:'Ps. Garth Byleveld', date:'05 Jan 2026', campus:'CFC Johannesburg', img:'assets/img-host-welcome.jpg'},
+      {title:'The Power of His Name', pastor:'Apostle Theo Wolmarans', date:'29 Dec 2025', campus:'CFC South', img:'assets/img-dreamteam.jpg'},
+      {title:'Together We Build', pastor:'Ps. Garth Byleveld', date:'22 Dec 2025', campus:'CFC Johannesburg', img:'assets/img-crowd-spotlights.jpg'},
+      {title:'All Things New', pastor:'Apostle Theo Wolmarans', date:'15 Dec 2025', campus:'CFC South', img:'assets/img-worship-band.jpg'},
+    ];
+    const messages = all.filter(m => this.state.campus==='All' || m.campus===this.state.campus);
+    const campusOpts = ['All','CFC Johannesburg','CFC South'].map(v => {
+      const active = this.state.campus===v;
+      return { label: v==='All'?'All Campuses':v, set:()=>this.setState({campus:v}), bg: active?'#2E6BE6':'#fff', color: active?'#fff':'#3a4660', border: active?'#2E6BE6':'#d4d8e0' };
+    });
+    return { series, messages, campusOpts };
+  }
+}
+</script>
+</body>
+</html>

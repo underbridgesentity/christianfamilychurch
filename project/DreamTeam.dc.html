@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Hanken+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>html,body{margin:0;padding:0}*{box-sizing:border-box}[data-reveal]{opacity:1;transform:none}@keyframes cfcRv{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}@supports (animation-timeline:view()){[data-reveal]{opacity:0;animation:cfcRv linear both;animation-timeline:view();animation-range:entry 0% cover 26%}}/*step*/[data-step] [data-stepimg]{transition:transform .7s cubic-bezier(.22,.61,.36,1)}[data-step]:hover [data-stepimg]{transform:scale(1.07)}[data-step] [data-stepcta]{transition:opacity .45s ease,transform .45s ease}[data-step]:hover [data-stepcta]{opacity:1;transform:translateY(0)}/*resp*/@media(max-width:1024px){[style*="grid-template-columns: repeat(4, 1fr)"]{grid-template-columns:1fr 1fr !important}[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr 1fr 1fr !important}}@media(max-width:768px){[style*="grid-template-columns: 1fr 1fr"],[style*="grid-template-columns: 1.4fr 1fr"],[style*="grid-template-columns: 1.25fr 1fr"],[style*="grid-template-columns: 0.85fr 1.15fr"],[style*="grid-template-columns: repeat(4, 1fr)"],[style*="grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr"]{grid-template-columns:1fr !important}}</style>
+</helmet>
+<div style="width:100%;overflow-x:hidden;font-family:'Hanken Grotesk',sans-serif;color:#11203F;background:#fff">
+  <dc-import name="Nav" overlay="{{ true }}" active="" hint-size="100%,78px"></dc-import>
+
+  <section data-screen-label="Dream Team / Hero" style="position:relative;min-height:62vh;display:flex;align-items:center;overflow:hidden">
+    <img src="assets/img-dreamteam.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" />
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg, rgba(7,15,33,.82), rgba(7,15,33,.4))"></div>
+    <div style="position:relative;z-index:2;max-width:1340px;width:100%;margin:0 auto;padding:150px clamp(20px,4vw,40px) 90px">
+      <p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:#9DBDF7;margin:0 0 22px">Dream Team</p>
+      <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(42px,7.5vw,100px);line-height:.96;letter-spacing:-.03em;color:#fff;margin:0 0 20px">Use Your Gifts</h1>
+      <p style="font-size:clamp(17px,2vw,22px);font-weight:300;line-height:1.5;color:rgba(255,255,255,.84);max-width:540px;margin:0">You were made to make a difference. Find a team and serve alongside this family.</p>
+    </div>
+  </section>
+
+  <section style="background:#fff;padding:clamp(64px,8vw,110px) clamp(20px,4vw,40px)">
+    <div style="max-width:1340px;margin:0 auto">
+      <div data-reveal style="margin-bottom:44px;transition:opacity .7s ease,transform .7s ease"><p style="font-family:'Archivo',sans-serif;font-weight:700;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#2E6BE6;margin:0 0 14px">Where You Can Serve</p><h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(28px,4vw,48px);line-height:1.04;letter-spacing:-.02em;margin:0">Find your team</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px">
+        <sc-for list="{{ teams }}" as="t" hint-placeholder-count="6">
+          <a href="#join" data-step data-reveal style="position:relative;display:flex;flex-direction:column;justify-content:flex-end;border-radius:8px;overflow:hidden;aspect-ratio:5/4;text-decoration:none;color:#fff;transition:opacity .6s ease,transform .6s ease,box-shadow .4s ease" style-hover="box-shadow:0 30px 60px -28px rgba(11,24,48,.55)">
+            <img src="{{ t.img }}" data-stepimg style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" alt="{{ t.name }}" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top, rgba(7,15,33,.92) 8%, rgba(7,15,33,.1) 65%)"></div>
+            <div style="position:relative;padding:28px"><h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:24px;margin:0 0 8px">{{ t.name }}</h3><p style="font-size:14.5px;color:rgba(255,255,255,.75);line-height:1.5;margin:0">{{ t.desc }}</p><span data-stepcta style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-family:'Archivo',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.04em;color:#fff">Get involved <span style="font-size:16px">&rarr;</span></span></div>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="join" style="position:relative;overflow:hidden;background:#0B1830">
+    <img src="assets/img-dreamteam.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.18" />
+    <div style="position:absolute;inset:0;background:linear-gradient(120deg, rgba(8,18,38,.92), rgba(11,24,48,.72))"></div>
+    <div data-reveal style="position:relative;max-width:720px;margin:0 auto;padding:clamp(72px,10vw,130px) clamp(20px,4vw,40px);text-align:center;transition:opacity .7s ease,transform .7s ease">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:clamp(30px,5vw,56px);line-height:1.04;letter-spacing:-.02em;color:#fff;margin:0 0 18px">Ready to join a team?</h2>
+      <p style="font-size:18px;color:rgba(255,255,255,.72);line-height:1.6;margin:0 0 34px">Tell us where you&rsquo;d love to serve and a team leader will be in touch.</p>
+      <a href="Contact.dc.html" style="display:inline-block;background:#2E6BE6;color:#fff;text-decoration:none;font-weight:700;font-size:16px;padding:18px 44px;border-radius:100px;transition:background .2s,transform .2s" style-hover="background:#1f54c4;transform:translateY(-2px)">Join a Team</a>
+    </div>
+  </section>
+
+  <dc-import name="Footer" hint-size="100%,520px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount(){
+    const reveal = el => { el.style.opacity='1'; el.style.transform='none'; };
+    this._els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const check = ()=>{ const h = window.innerHeight||800; this._els = this._els.filter(el=>{ const r=el.getBoundingClientRect(); if(r.top < h*0.9){ reveal(el); return false; } return true; }); if(!this._els.length && this._sc){ window.removeEventListener('scroll', this._sc); this._sc=null; } };
+    this._sc = ()=>check();
+    window.addEventListener('scroll', this._sc, {passive:true});
+    check(); requestAnimationFrame(check); setTimeout(check,250); setTimeout(check,900);
+  }
+  componentWillUnmount(){ if(this._sc) window.removeEventListener('scroll', this._sc); }
+  renderVals(){
+    return { teams: [
+      {name:'Hosting', desc:'Welcome people and make every guest feel at home.', img:'assets/img-host-welcome.jpg'},
+      {name:'Kids', desc:'Shape the next generation in a fun, safe space.', img:'assets/img-baby-dedication.jpg'},
+      {name:'Youth', desc:'Walk with teenagers as they find faith and friendship.', img:'assets/img-dreamteam.jpg'},
+      {name:'Production', desc:'Run sound, lights and screens that carry the message.', img:'assets/img-congregation-screens.jpg'},
+      {name:'Worship', desc:'Lead the room into God\u2019s presence through music.', img:'assets/img-worship-vocalist.jpg'},
+      {name:'Outreach', desc:'Take love and practical help into the community.', img:'assets/img-crowd-spotlights.jpg'},
+    ] };
+  }
+}
+</script>
+</body>
+</html>
