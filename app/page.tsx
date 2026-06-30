@@ -46,16 +46,17 @@ const quickLinks = [
 ];
 
 const nextSteps = [
-  { href: "/growth-track", label: "Discover Purpose", title: "Growth Track", img: "/assets/img-host-welcome.jpg" },
-  { href: "/small-groups", label: "Find Community", title: "Small Groups", img: "/assets/img-baby-dedication.jpg" },
+  { href: "/growth-track", label: "Discover Purpose", title: "Growth Track", img: "/assets/growth-track/growth-1.jpg" },
+  { href: "/small-groups", label: "Find Community", title: "Small Groups", img: "/assets/small-groups/small-1.jpg" },
   { href: "/dream-team", label: "Use Your Gifts", title: "Dream Team", img: "/assets/img-dreamteam.jpg" },
 ];
 
 const family = [
-  { href: "/ministries/childrens-world", title: "Children’s World", img: "/assets/ministries/childrens-world/childrens-3.jpg" },
+  { href: "/ministries/childrens-world", title: "Children’s World", img: "/assets/ministries/childrens-world/childrens-12.jpg" },
   { href: "/ministries/youth", title: "Youth Ministry", img: "/assets/ministries/youth/youth-3.jpg" },
-  { href: "/ministries/marriage", title: "Marriage", img: "/assets/ministries/marriage/marriage-3.jpg" },
-  { href: "/ministries/missions", title: "Missions", img: "/assets/ministries/missions/missions-3.jpg" },
+  { href: "/ministries/young-adults", title: "Young Adults", img: "/assets/ministries/young-adults/young-1.jpg" },
+  { href: "/ministries/marriage", title: "Marriage", img: "/assets/ministries/marriage/marriage-1.jpg" },
+  { href: "/ministries/missions", title: "Missions", img: "/assets/ministries/missions/missions-1.jpg" },
 ];
 
 export default function HomePage() {
@@ -193,7 +194,7 @@ export default function HomePage() {
       {/* SMALL GROUPS CTA */}
       <section style={{ position: "relative", overflow: "hidden", background: "#0B1830" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/img-baby-dedication.jpg" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.28 }} />
+        <img src="/assets/small-groups/small-1.jpg" alt="" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.28 }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(120deg, rgba(8,18,38,.92), rgba(11,24,48,.7))" }} />
         <Reveal style={{ position: "relative", maxWidth: 820, margin: "0 auto", padding: "clamp(80px,11vw,150px) clamp(20px,4vw,40px)", textAlign: "center" }}>
           <p style={{ ...eyebrow, color: "var(--accent-lighter)", margin: "0 0 22px" }}>Small Groups</p>

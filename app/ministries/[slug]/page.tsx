@@ -51,6 +51,19 @@ const extras: Record<
       { day: "12", mon: "Apr", name: "Youth Camp Weekend", meta: "Away · All weekend" },
     ],
   },
+  "young-adults": {
+    purpose:
+      "We exist to help 20–35s build a faith of their own, find genuine friendship, and live on purpose in this season of life. Whether you are studying, working or figuring it out, there is a place for you here.",
+    whatWeDo: [
+      { title: "Connect Nights", img: "/assets/img-dreamteam.jpg" },
+      { title: "Life Groups", img: "/assets/img-host-welcome.jpg" },
+      { title: "Socials & Outreach", img: "/assets/img-crowd-spotlights.jpg" },
+    ],
+    events: [
+      { day: "28", mon: "Feb", name: "Young Adults Connect", meta: "CFC Johannesburg · 6:30 PM" },
+      { day: "21", mon: "Mar", name: "Friday Social", meta: "CFC Johannesburg · 7:00 PM" },
+    ],
+  },
   marriage: {
     purpose:
       "We exist to help couples build strong, healthy marriages and homes that last. Whether you are newly engaged or decades in, there is always more grace and growth ahead.",

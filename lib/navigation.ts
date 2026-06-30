@@ -82,6 +82,7 @@ export const footerNav = {
   Ministries: [
     { label: "Children’s World", href: "/ministries/childrens-world" },
     { label: "Youth Ministry", href: "/ministries/youth" },
+    { label: "Young Adults", href: "/ministries/young-adults" },
     { label: "Marriage", href: "/ministries/marriage" },
     { label: "Significance", href: "/ministries/significance" },
     { label: "Missions", href: "/ministries/missions" },

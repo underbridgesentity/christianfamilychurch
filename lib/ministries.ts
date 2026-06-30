@@ -13,10 +13,11 @@ export type Ministry = {
 const g = (dir: string, prefix: string, n: number) =>
   Array.from({ length: n }, (_, i) => `/assets/ministries/${dir}/${prefix}-${i + 1}.jpg`);
 
-const childrens = g("childrens-world", "childrens", 11);
+const childrens = g("childrens-world", "childrens", 13);
 const youth = g("youth", "youth", 6);
 const marriage = g("marriage", "marriage", 8);
 const missions = g("missions", "missions", 5);
+const youngAdults = g("young-adults", "young", 2);
 const significance = g("significance", "significance", 7);
 
 export const ministries: Ministry[] = [
@@ -35,6 +36,14 @@ export const ministries: Ministry[] = [
     image: youth[0],
     gallery: youth,
     sourceUrl: "https://www.christianfamilychurch.co.za/youth",
+  },
+  {
+    slug: "young-adults",
+    title: "Young Adults",
+    desc: "A community for 20–35s to grow in faith and friendship.",
+    image: youngAdults[0],
+    gallery: youngAdults,
+    sourceUrl: "https://www.christianfamilychurch.co.za/young-adults",
   },
   {
     slug: "marriage",
