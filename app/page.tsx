@@ -52,10 +52,10 @@ const nextSteps = [
 ];
 
 const family = [
-  { href: "/ministries/childrens-world", title: "Children’s World", img: "/assets/img-baby-dedication.jpg" },
-  { href: "/ministries/youth", title: "Youth Ministry", img: "/assets/img-dreamteam.jpg" },
-  { href: "/ministries/marriage", title: "Marriage", img: "/assets/img-worship-band.jpg" },
-  { href: "/ministries/missions", title: "Missions", img: "/assets/img-crowd-spotlights.jpg" },
+  { href: "/ministries/childrens-world", title: "Children’s World", img: "/assets/ministries/childrens-world/childrens-3.jpg" },
+  { href: "/ministries/youth", title: "Youth Ministry", img: "/assets/ministries/youth/youth-3.jpg" },
+  { href: "/ministries/marriage", title: "Marriage", img: "/assets/ministries/marriage/marriage-3.jpg" },
+  { href: "/ministries/missions", title: "Missions", img: "/assets/ministries/missions/missions-3.jpg" },
 ];
 
 export default function HomePage() {

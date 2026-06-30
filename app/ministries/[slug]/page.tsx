@@ -123,6 +123,12 @@ export default async function MinistryPage({ params }: { params: Promise<{ slug:
     ],
   };
 
+  // Prefer the ministry's real photos for the "What We Do" cards (hero uses gallery[0]).
+  const whatWeDo = extra.whatWeDo.map((w, i) => ({
+    ...w,
+    img: ministry.gallery?.[i + 1] ?? w.img,
+  }));
+
   return (
     <main style={{ width: "100%", overflowX: "hidden", color: "var(--ink)", background: "#fff" }}>
       <Nav active="next" overlay />
@@ -157,7 +163,7 @@ export default async function MinistryPage({ params }: { params: Promise<{ slug:
             <h2 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: "clamp(26px,3.6vw,44px)", lineHeight: 1.04, letterSpacing: "-.02em", margin: 0 }}>Every Sunday & beyond</h2>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(290px,1fr))", gap: 24 }}>
-            {extra.whatWeDo.map((w, i) => (
+            {whatWeDo.map((w, i) => (
               <Reveal key={w.title} delay={i * 0.08} className="tile" style={{ background: "#fff", borderRadius: 8, overflow: "hidden", boxShadow: "0 1px 3px rgba(11,24,48,.08)" }}>
                 <div style={{ aspectRatio: "16 / 11", overflow: "hidden" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}

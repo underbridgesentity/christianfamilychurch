@@ -8,7 +8,7 @@ export const metadata = { title: "Connect" };
 
 const cards = [
   { title: "Join CFC", label: "Become a Member", img: "/assets/img-congregation-screens.jpg", href: "/growth-track" },
-  { title: "Water Baptism", label: "Take the Plunge", img: "/assets/img-worship-band.jpg", href: "/events" },
+  { title: "Water Baptism", label: "Take the Plunge", img: "/assets/other/baptism-1.jpg", href: "/events" },
   { title: "Small Groups", label: "Find Your People", img: "/assets/img-baby-dedication.jpg", href: "/small-groups" },
   { title: "Growth Track", label: "Discover Purpose", img: "/assets/img-host-welcome.jpg", href: "/growth-track" },
   { title: "Dream Team", label: "Use Your Gifts", img: "/assets/img-dreamteam.jpg", href: "/dream-team" },

@@ -26,6 +26,7 @@ export type Series = {
 };
 
 export const series: Series[] = [
+  { name: "Galatians", cover: "/assets/series/galatians.jpg", tint: "rgba(20,33,63,.34)", count: 6 },
   { name: "21 Days of Prayer", cover: "/assets/img-pastor-preaching.jpg", tint: "rgba(46,107,230,.45)", count: 8 },
   { name: "All Things New", cover: "/assets/img-worship-band.jpg", tint: "rgba(231,76,60,.4)", count: 5 },
   { name: "No One Like You", cover: "/assets/img-worship-vocalist.jpg", tint: "rgba(20,33,63,.4)", count: 6 },

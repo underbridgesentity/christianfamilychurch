@@ -49,8 +49,8 @@ export const campuses: Campus[] = [
     addressLines: ["21 Heidelberg Rd, Newmarket AH", "Alberton, 1449"],
     phone: "011 230 9300",
     email: "info@cfcsa.co.za",
-    image: "/assets/img-crowd-spotlights.jpg",
-    heroImage: "/assets/img-crowd-spotlights.jpg",
+    image: "/assets/campuses/south/south-1.jpg",
+    heroImage: "/assets/campuses/south/south-2.jpg",
     blurb: "A growing family reaching the south of Johannesburg.",
     mapQuery: "21 Heidelberg Rd, Newmarket AH, Alberton, 1449",
     pastor: {
