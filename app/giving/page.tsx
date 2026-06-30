@@ -20,6 +20,10 @@ const cardLabel: React.CSSProperties = {
 
 const cardValue: React.CSSProperties = { fontSize: 15, margin: 0 };
 
+// CFC "Tithes and Offerings" Zapper payment page
+const ZAPPER_URL =
+  "https://www.zapper.com/payWithZapper/?qr=http%3A%2F%2F2.zap.pe%3Ft%3D6%26i%3D28389%3A29990%3A7%5B34%7C0%2C33n%7C%7C%7CTithes%20and%20Offerings%3A10%5B39%7CZAR%2C38%7CC.F.C%20Tithes%20and%20Offerings";
+
 export default function GivingPage() {
   return (
     <main style={{ width: "100%", overflowX: "hidden", color: "var(--ink)", background: "#fff" }}>
@@ -63,11 +67,11 @@ export default function GivingPage() {
           {/* Zapper */}
           <Reveal delay={0.07} style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", background: "#fff", borderRadius: 12, padding: "34px 30px", boxShadow: "0 1px 3px rgba(11,24,48,.08)" }}>
             <h3 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: 22, margin: "0 0 18px", alignSelf: "flex-start" }}>Zapper</h3>
-            <div style={{ background: "#fff", border: "1px solid #eceef2", borderRadius: 12, padding: 12, marginBottom: 18 }}>
+            <Hover as="a" href={ZAPPER_URL} target="_blank" rel="noopener" aria-label="Pay CFC Tithes and Offerings with Zapper" style={{ display: "block", background: "#fff", border: "1px solid #eceef2", borderRadius: 12, padding: 12, marginBottom: 18, transition: "box-shadow .2s, transform .2s" }} hoverStyle={{ boxShadow: "0 8px 22px rgba(11,24,48,.14)", transform: "translateY(-2px)" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/assets/zapper-qr.png" alt="CFC Zapper QR code" style={{ width: 170, height: 170, display: "block" }} />
-            </div>
-            <p style={{ fontSize: 14.5, color: "#5A6478", lineHeight: 1.55, margin: "0 0 18px", flex: 1 }}>Open the Zapper app and scan to give.</p>
+              <img src="/assets/zapper-card.png" alt="CFC Tithes and Offerings Zapper QR code" style={{ width: 220, height: "auto", display: "block" }} />
+            </Hover>
+            <p style={{ fontSize: 14.5, color: "#5A6478", lineHeight: 1.55, margin: "0 0 18px", flex: 1 }}>Scan the code in your Zapper app, or tap it to pay online.</p>
             <div style={{ display: "flex", alignItems: "center", gap: 7 }}>
               <span style={{ width: 22, height: 22, borderRadius: 6, background: "#3FB54A", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="3"><path d="M4 12l5 5L20 6" /></svg>
@@ -81,26 +85,30 @@ export default function GivingPage() {
             <h3 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: 22, margin: "0 0 22px" }}>EFT / Bank Transfer</h3>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, flex: 1 }}>
               <div>
-                <p style={cardLabel}>Bank</p>
-                <p style={cardValue}>First National Bank</p>
-              </div>
-              <div>
                 <p style={cardLabel}>Account Name</p>
                 <p style={cardValue}>Christian Family Church</p>
               </div>
               <div style={{ display: "flex", gap: 24 }}>
                 <div>
-                  <p style={cardLabel}>Account No.</p>
-                  <p style={cardValue}>6201 555 0123</p>
+                  <p style={cardLabel}>Bank</p>
+                  <p style={cardValue}>ABSA Bank, Centurion</p>
                 </div>
                 <div>
-                  <p style={cardLabel}>Branch</p>
-                  <p style={cardValue}>250 655</p>
+                  <p style={cardLabel}>Branch Code</p>
+                  <p style={cardValue}>632 005</p>
                 </div>
               </div>
               <div>
+                <p style={cardLabel}>Tithes &amp; Offering — Account No.</p>
+                <p style={cardValue}>4059457357</p>
+              </div>
+              <div>
+                <p style={cardLabel}>Welfare Programme — Account No.</p>
+                <p style={cardValue}>4059458882</p>
+              </div>
+              <div>
                 <p style={cardLabel}>Reference</p>
-                <p style={cardValue}>Your name + TITHE / OFFERING</p>
+                <p style={cardValue}>Your name + giving type (e.g. Tithe, Offering)</p>
               </div>
             </div>
           </Reveal>
