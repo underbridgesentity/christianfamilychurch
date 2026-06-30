@@ -36,6 +36,17 @@ export const series: Series[] = [
 
 export const messages: Message[] = [
   {
+    id: "say-yes-to-gods-bigger-plan",
+    title: "Say Yes to God’s Bigger Plan",
+    speaker: "Dr Beverley Wolmarans",
+    date: "21 June 2026",
+    shortDate: "21 Jun 2026",
+    series: "Sunday Service",
+    campus: "CFC Johannesburg",
+    thumbnail: "/assets/img-pastor-preaching.jpg",
+    youtubeId: "S1e22FkyVxw",
+  },
+  {
     id: "god-will-see-you-through",
     title: "God Will See You Through",
     speaker: "Apostle Theo Wolmarans",
