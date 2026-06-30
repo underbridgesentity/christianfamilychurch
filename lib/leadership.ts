@@ -10,14 +10,13 @@ export const seniorPastors = {
 };
 
 export const leaders: Leader[] = [
-  { name: "Apostle Theo Wolmarans", role: "Co-founder & Senior Pastor", initials: "TW" },
-  { name: "Dr Beverley Wolmarans", role: "Co-founder & Senior Pastor", initials: "BW" },
-  { name: "Ps Johnny Slabbert", role: "Chief Operations Officer", initials: "JS" },
-  { name: "Ps Greg Thomaz", role: "GROW Director", initials: "GT" },
-  { name: "Ps Don-Ray Gaveni", role: "Online & Next Steps Pastor", initials: "DG" },
-  { name: "Ps Nanica Nel", role: "Groups Director & Youth Pastor", initials: "NN" },
+  { name: "Dr Johnny Slabbert", role: "Chief Operations Officer", initials: "JS" },
   { name: "Ps Jenny Roche", role: "Financial Director", initials: "JR" },
-  { name: "Ps Andre Wilmans", role: "Missions Director & Bible College Principal", initials: "AW" },
-  { name: "Ps Evert Boshoff", role: "Dream Team & Growth Track Director", initials: "EB" },
+  { name: "Dr Andre Wilmans", role: "Missions Director", initials: "AW" },
   { name: "Ps Clive Nyakudzi", role: "Weekend Service Director", initials: "CN" },
+  { name: "Ps Greg Thomaz", role: "Campus Pastor, Johannesburg", initials: "GT" },
+  { name: "Ps Nanica Nel", role: "Small Groups Manager, Johannesburg Campus", initials: "NN" },
+  { name: "Ps Don-Ray Gaveni", role: "Small Groups Manager, South Campus", initials: "DG" },
+  { name: "Ps Evert Boshoff", role: "Campus Pastor, South Campus", initials: "EB" },
+  { name: "Ps Charl Wolmarans", role: "Children’s World Manager", initials: "CW" },
 ];
