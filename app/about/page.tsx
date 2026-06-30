@@ -119,7 +119,12 @@ export default function AboutPage() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 20 }}>
             {leaders.map((p, i) => (
               <Reveal key={p.name} delay={(i % 4) * 0.05} style={{ background: "rgba(255,255,255,.04)", border: "1px solid rgba(255,255,255,.08)", borderRadius: 8, padding: 30, textAlign: "center" }}>
-                <div style={{ width: 84, height: 84, borderRadius: "50%", margin: "0 auto 18px", background: "linear-gradient(135deg,#2E6BE6,#1c3f8f)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: 26, color: "#fff" }}>{p.initials}</div>
+                <div style={{ width: 96, height: 96, borderRadius: "50%", margin: "0 auto 18px", overflow: "hidden", background: "linear-gradient(135deg,#2E6BE6,#1c3f8f)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: 28, color: "#fff", boxShadow: "0 0 0 3px rgba(46,107,230,.35)" }}>
+                  {p.image ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 22%" }} />
+                  ) : p.initials}
+                </div>
                 <h3 style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 17, margin: "0 0 5px" }}>{p.name}</h3>
                 <p style={{ fontSize: 13.5, color: "rgba(255,255,255,.55)", margin: 0 }}>{p.role}</p>
               </Reveal>
