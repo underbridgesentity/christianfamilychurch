@@ -132,3 +132,48 @@ img, video { display: block; max-width: 100%; }
   .split, .split-rev { grid-template-columns: 1fr !important; }
   .hero-pad { padding-top: 96px !important; }
 }
+
+/* ---------- Family bento mosaic (home: "For Your Family", 5 cards) ----------
+   Desktop: 4 cols x 2 rows — one tall portrait, two wide landscapes, two squares. */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 16px;
+  aspect-ratio: 2 / 1;
+}
+.bento > * { min-width: 0; min-height: 0; aspect-ratio: auto !important; }
+.bento > :nth-child(1) { grid-column: 1; grid-row: 1 / span 2; } /* portrait */
+.bento > :nth-child(2) { grid-column: 2 / span 2; grid-row: 1; } /* landscape */
+.bento > :nth-child(3) { grid-column: 4; grid-row: 1; }          /* square */
+.bento > :nth-child(4) { grid-column: 2; grid-row: 2; }          /* square */
+.bento > :nth-child(5) { grid-column: 3 / span 2; grid-row: 2; } /* landscape */
+
+/* Tablet: 2 cols x 3 rows, first card stays a tall portrait. */
+@media (max-width: 1024px) {
+  .bento {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    aspect-ratio: 2 / 3;
+  }
+  .bento > :nth-child(1) { grid-column: 1; grid-row: 1 / span 2; }
+  .bento > :nth-child(2) { grid-column: 2; grid-row: 1; }
+  .bento > :nth-child(3) { grid-column: 2; grid-row: 2; }
+  .bento > :nth-child(4) { grid-column: 1; grid-row: 3; }
+  .bento > :nth-child(5) { grid-column: 2; grid-row: 3; }
+}
+
+/* Mobile: single column, each card a gentle landscape. */
+@media (max-width: 640px) {
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    aspect-ratio: auto;
+  }
+  .bento > * {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    aspect-ratio: 16 / 10 !important;
+  }
+}

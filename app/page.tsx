@@ -178,9 +178,9 @@ export default function HomePage() {
             <p style={eyebrow}>For Your Family</p>
             <h2 style={h2}>Built for every season</h2>
           </Reveal>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 20 }}>
+          <div className="bento">
             {family.map((f, i) => (
-              <Reveal key={f.title} as={Link} href={f.href} delay={i * 0.06} className="tile" style={{ position: "relative", display: "flex", alignItems: "flex-end", borderRadius: 8, overflow: "hidden", aspectRatio: "1 / 1", textDecoration: "none", color: "#fff" }}>
+              <Reveal key={f.title} as={Link} href={f.href} delay={i * 0.06} className="tile" style={{ position: "relative", display: "flex", alignItems: "flex-end", borderRadius: 8, overflow: "hidden", textDecoration: "none", color: "#fff" }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={f.img} alt={f.title} className="tile-img" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(7,15,33,.85), transparent 60%)" }} />
