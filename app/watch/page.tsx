@@ -5,7 +5,7 @@ import { YouTubeEmbed } from "@/components/ui/YouTubeEmbed";
 import { Reveal } from "@/components/ui/Reveal";
 import { Hover } from "@/components/ui/Hover";
 import { site } from "@/lib/site";
-import { messages, series, messageImage } from "@/lib/messages";
+import { messages, series, messageImage, seriesCover } from "@/lib/messages";
 
 export const metadata = { title: "Watch Messages" };
 
@@ -13,6 +13,7 @@ const campusOpts = ["All Campuses", "CFC Johannesburg", "CFC South"];
 
 export default function WatchPage() {
   const featured = messages[0];
+  const recent = messages.slice(1, 13);
 
   return (
     <main style={{ width: "100%", overflowX: "hidden", color: "var(--ink)", background: "#fff" }}>
@@ -37,7 +38,7 @@ export default function WatchPage() {
           <Reveal style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: "clamp(24px,3vw,44px)", alignItems: "center" }} className="split">
             <YouTubeEmbed videoId={featured.youtubeId} playlistId={featured.youtubeId ? undefined : site.youtube.uploadsPlaylist} title={featured.title} />
             <div>
-              <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "#9DBDF7", margin: "0 0 12px" }}>Latest · {featured.series}</p>
+              <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "#9DBDF7", margin: "0 0 12px" }}>Latest · {featured.seriesName}</p>
               <h2 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: "clamp(26px,3.4vw,40px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: "0 0 12px" }}>{featured.title}</h2>
               <p style={{ fontSize: 15, color: "rgba(255,255,255,.6)", margin: "0 0 26px" }}>{featured.speaker} · {featured.date}</p>
               <Hover as={Link} href={`/messages/${featured.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 10, background: "var(--accent)", color: "#fff", textDecoration: "none", fontWeight: 700, fontSize: 15, padding: "15px 30px", borderRadius: 100, transition: "background .2s" }} hoverStyle={{ background: "var(--accent-dark)" }}>
@@ -57,10 +58,10 @@ export default function WatchPage() {
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))", gap: 22 }}>
             {series.map((s, i) => (
-              <Reveal key={s.name} as={Link} href="/watch/series" delay={i * 0.06} className="lift" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
+              <Reveal key={s.slug} as={Link} href={`/watch/series/${s.slug}`} delay={i * 0.06} className="lift" style={{ display: "block", textDecoration: "none", color: "inherit" }}>
                 <div style={{ position: "relative", borderRadius: 10, overflow: "hidden", aspectRatio: "1 / 1", boxShadow: "0 1px 3px rgba(11,24,48,.1)" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={s.cover} alt={s.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={seriesCover(s)} alt={s.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", inset: 0, background: `linear-gradient(150deg, ${s.tint} 0%, rgba(7,15,33,.85) 100%)` }} />
                   <div style={{ position: "absolute", inset: 0, padding: 26, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}>
                     <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 11, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.7)", margin: "0 0 8px" }}>{s.count} messages</p>
@@ -88,7 +89,7 @@ export default function WatchPage() {
             </div>
           </Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: 22 }}>
-            {messages.map((m, i) => (
+            {recent.map((m, i) => (
               <Reveal key={m.id} as={Link} href={`/messages/${m.id}`} delay={(i % 4) * 0.06} className="step-card" style={{ display: "block", background: "#fff", borderRadius: 8, overflow: "hidden", textDecoration: "none", color: "inherit", boxShadow: "0 1px 3px rgba(11,24,48,.08)" }}>
                 <div style={{ position: "relative", aspectRatio: "16 / 9", overflow: "hidden" }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -96,8 +97,8 @@ export default function WatchPage() {
                   <div style={{ position: "absolute", left: 14, top: 14, background: "rgba(11,24,48,.8)", color: "#fff", fontSize: 11, fontWeight: 600, padding: "5px 11px", borderRadius: 100 }}>{m.campus}</div>
                 </div>
                 <div style={{ padding: 22 }}>
-                  <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 11, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--accent)", margin: "0 0 8px" }}>{m.shortDate}</p>
-                  <h3 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: 18, lineHeight: 1.2, margin: "0 0 6px" }}>{m.title}</h3>
+                  <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 11, letterSpacing: ".12em", textTransform: "uppercase", color: "var(--accent)", margin: "0 0 8px" }}>{m.shortDate || m.seriesName}</p>
+                  <h3 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: 18, lineHeight: 1.2, margin: "0 0 6px" }}>{m.title}{m.part ? <span style={{ color: "var(--slate)", fontWeight: 700 }}> · {m.part}</span> : null}</h3>
                   <p style={{ fontSize: 13.5, color: "var(--slate)", margin: 0 }}>{m.speaker}</p>
                 </div>
               </Reveal>

@@ -44,17 +44,19 @@ export default async function MessagePage({ params }: { params: Promise<{ id: st
       {/* META */}
       <section style={{ background: "#fff", padding: "clamp(40px,5vw,64px) clamp(20px,4vw,40px) clamp(56px,7vw,90px)" }}>
         <div style={{ maxWidth: 1080, margin: "0 auto" }}>
-          <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--accent)", margin: "0 0 14px" }}>{m.series}</p>
+          <Link href={`/watch/series/${m.series}`} style={{ display: "inline-block", fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase", color: "var(--accent)", margin: "0 0 14px", textDecoration: "none" }}>{m.seriesName}{m.part ? ` · ${m.part}` : ""}</Link>
           <h1 style={{ fontFamily: "var(--font-archivo)", fontWeight: 900, fontSize: "clamp(30px,4.6vw,56px)", lineHeight: 1.02, letterSpacing: "-.03em", margin: "0 0 20px" }}>{m.title}</h1>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 24, alignItems: "center", color: "var(--slate)", fontSize: 15, paddingBottom: 30, borderBottom: "1px solid #eceef2" }}>
             <span style={{ display: "flex", alignItems: "center", gap: 9 }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" strokeWidth="1.8"><circle cx="12" cy="8" r="4" /><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" /></svg>
               {m.speaker}
             </span>
-            <span style={{ display: "flex", alignItems: "center", gap: 9 }}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" strokeWidth="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2" /><path d="M3 9h18M8 2.5v4M16 2.5v4" /></svg>
-              {m.date}
-            </span>
+            {m.date ? (
+              <span style={{ display: "flex", alignItems: "center", gap: 9 }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" strokeWidth="1.8"><rect x="3" y="4.5" width="18" height="16" rx="2" /><path d="M3 9h18M8 2.5v4M16 2.5v4" /></svg>
+                {m.date}
+              </span>
+            ) : null}
             <span style={{ display: "flex", alignItems: "center", gap: 9 }}>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2E6BE6" strokeWidth="1.8"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.5 8 12 8 12s8-6.5 8-12c0-4.4-3.6-8-8-8z" /><circle cx="12" cy="10" r="2.4" /></svg>
               {m.campus}
@@ -74,7 +76,7 @@ export default async function MessagePage({ params }: { params: Promise<{ id: st
           <div style={{ maxWidth: 1080, margin: "0 auto" }}>
             <Reveal style={{ marginBottom: 32 }}>
               <p style={{ fontFamily: "var(--font-archivo)", fontWeight: 700, fontSize: 13, letterSpacing: ".22em", textTransform: "uppercase", color: "var(--accent)", margin: "0 0 14px" }}>More From This Series</p>
-              <h2 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: "clamp(24px,3.2vw,38px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: 0 }}>{m.series}</h2>
+              <h2 style={{ fontFamily: "var(--font-archivo)", fontWeight: 800, fontSize: "clamp(24px,3.2vw,38px)", lineHeight: 1.05, letterSpacing: "-.02em", margin: 0 }}>{m.seriesName}</h2>
             </Reveal>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: 22 }}>
               {related.map((r, i) => (
